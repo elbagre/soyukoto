@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router'
+import { Link, withRouter } from 'react-router';
+import GuestButton from './guest/guest_button.jsx';
 
 class SessionPage extends React.Component {
   constructor(props) {
@@ -10,10 +11,12 @@ class SessionPage extends React.Component {
       password: ""
     }
 
+    this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidUpdate() {
+    console.log(this.props.errors);
     if (this.props.loggedIn) {
       this.props.router.push("/");
     }
@@ -22,6 +25,24 @@ class SessionPage extends React.Component {
   update(category) {
     return (e) => {
       this.setState({ [category]: e.currentTarget.value });
+    }
+  }
+
+  handleErrors() {
+    if (this.props.errors.length) {
+      const errors = this.props.errors.map( (error, idx) => {
+        return(
+          <li key={idx}>{error}</li>
+        )
+      });
+
+      return(
+        <ul className="error">
+          {errors}
+        </ul>
+      );
+    } else {
+      return <div></div>
     }
   }
 
@@ -54,9 +75,11 @@ class SessionPage extends React.Component {
               value={this.state.password}
               onChange={this.update("password")} />
           </div>
+          <div>
+            <Link to="/login">Have an Account?</Link>
             <input type="submit" value="Submit" />
+          </div>
         </form>
-        <Link to="/login">Have an Account?</Link>
       </div>
     )
   }
@@ -78,9 +101,48 @@ class SessionPage extends React.Component {
                    value={this.state.password}
                    onChange={this.update("password")} />
           </div>
-          <input type="submit" value="Submit" />
+          <div>
+            <Link to="/signup">Don't have an Account?</Link>
+            <input type="submit" value="Submit" />
+          </div>
         </form>
-        <Link to="/signup">Don't have an Account?</Link>
+        <div>
+          <GuestButton login={this.props.processForm} />
+        </div>
+      </div>
+    )
+  }
+
+  momotaro() {
+    return (
+      <div>
+        <div className="japanese">
+          <p>と言ったら</p>
+          <p>うまいもも、こっちゃこい、苦いももあっちゃ行け</p>
+          <p>お爺さんにも食べさせてあげたいと思って</p>
+          <p>拾って食べたらなんとも美味しくてほっぺたが落ちそう</p>
+          <p>ある日、お婆さんが川で洗濯をしていたら、つんばらこ、つんばらこ、ももが流れてきました</p>
+        </div>
+        <div className="japanese">
+          <p>へ洗濯に出かけます</p>
+          <p>お婆さんは川</p>
+          <p>山へ木を切りに行けば</p>
+          <p>お爺さんが</p>
+          <p>昔々ある所に</p>
+        </div>
+      </div>
+    )
+  }
+
+  haiku() {
+    return(
+      <div className="haiku">
+        <div className="japanese">
+          <p>水無月の虚空に涼し時鳥</p>
+          <p>木をつみて夜の明やすき小窓かな</p>
+          <p>一重づゝ一重つゝ散れ八重櫻</p>
+          <p>名月の出るやゆらめく花薄</p>
+        </div>
       </div>
     )
   }
@@ -90,11 +152,13 @@ class SessionPage extends React.Component {
 
     return (
       <div className="login">
-        <h1 className="japanese">そう言うこと</h1>
+        {this.momotaro()}
+        {this.haiku()}
         <div className="sakura">
           <img src={window.assets.light_cherry} />
           <img src={window.assets.cherry_falling} />
         </div>
+        {this.handleErrors()}
         {form}
       </div>
     );

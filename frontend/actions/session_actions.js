@@ -6,7 +6,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const signup = (user) => (dispatch) => {
   Util.signup(user)
       .then( (user) => dispatch(receiveCurrentUser(user)),
-        err => dispatch(receiveErrors(err.responseJSON)));
+        (err) => dispatch(receiveErrors(err.responseJSON)));
 }
 
 export const login = (user) => (dispatch) => {
@@ -15,7 +15,7 @@ export const login = (user) => (dispatch) => {
         (err) => dispatch(receiveErrors(err.responseJSON)));
 }
 
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   Util.logout().then( (user) => dispatch(receiveCurrentUser(null)));
 }
 
