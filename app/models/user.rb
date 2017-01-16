@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  validates :first_name, :last_name, :session_token, presence: true
+  validates :session_token, presence: true
   validates :email, :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_credentials(user_tag, password)
-    User.find_by(username: user_tag) ? user = User.find_by(username: user_tag)
-                                     : user = User.find_by(email: user_tag)
+    user = User.find_by(username: user_tag)
     return nil unless user && user.password_is?(password)
+    user
   end
 
   def password_is?(password)
