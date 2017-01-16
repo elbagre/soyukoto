@@ -1,0 +1,111 @@
+.grids {
+  position: relative;
+}
+
+.group-axis {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 780px;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 51px;
+    height: 50px;
+    font-size: 30px;
+    color: #aaa;
+    justify-content: center;
+  }
+
+  li:first-child {
+    margin-left: 71px;
+  }
+}
+
+.kana-grid {
+  display: flex;
+  flex-direction: row;
+  width: 780px;
+  z-index: 0;
+  font-size: 48px;
+  margin: 0 auto;
+  position: relative;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    li {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      border-right: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    li:hover{
+      background: none;
+      color: transparent;
+    }
+
+    li:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  ul:first-child {
+    border: 0;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    li {
+      border: 0;
+      justify-content: center;
+      cursor: default;
+    }
+  }
+
+  ul:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+
+    li {
+      border: 0;
+      font-size: 30px;
+      color: #aaa;
+    }
+  }
+
+  ul:nth-child(2) {
+    border-left: 1px solid #ccc;
+  }
+}
+
+.phonetics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  ul {
+    li {
+      color: #fff;
+      justify-content: center;
+      font-size: 24px;
+      background: #FABCBC;
+    }
+  }
+
+  ul:first-child {
+    li {
+      background: #fff;
+    }
+  }
+}
