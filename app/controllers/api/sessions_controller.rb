@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    debugger
+
     if @user
       log_in!(@user)
       render "api/users/show"
@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       log_out!
-      render json: {}
+      render "api/users/show"
     else
       render json: ["nobody signed in"], status: 404
     end

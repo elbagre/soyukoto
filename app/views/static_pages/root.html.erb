@@ -2,12 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SoIuKoto</title>    
+    <title>SoIuKoto</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
     <script id="bootstrap-current-user" type="text/javascript">
       <% if logged_in? %>
       	window.currentUser = <%= render("api/users/user.json.jbuilder",
       		user: current_user).html_safe %>
       <% end %>
+    </script>
+    <script type="text/javascript">
+      window.assets = {
+        cherry_birds: "<%= image_url('cherry_birds.png') %>",
+        cherry_falling: "<%= image_url('cherry_falling.png') %>",
+        cherry_blossoms_up: "<%= image_url('cherry_blossoms_up.png') %>",
+        cherry_blossoms: "<%= image_url('cherry_blossoms.png') %>",
+        cherry: "<%= image_url('cherry.png') %>",
+        kimugure: "<%= image_url('kimugure.png') %>",
+        light_cherry: "<%= image_url('light_cherry.png') %>"
+      }
     </script>
   </head>
   <body>

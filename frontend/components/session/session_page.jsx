@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link, withRouter } from 'react-router'
 
 class SessionPage extends React.Component {
   constructor(props) {
@@ -11,6 +11,12 @@ class SessionPage extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.loggedIn) {
+      this.props.router.push("/");
+    }
   }
 
   update(category) {
@@ -27,28 +33,28 @@ class SessionPage extends React.Component {
 
   signupForm() {
     return(
-      <div>
-        <h2>Create an Account!</h2>
+      <div className="session-form">
+        <h3>Create an Account!</h3>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            e-Mail:
+          <div>
+            <label>e-Mail:</label>
             <input type="email"
-                   value={this.state.email}
-                   onChange={this.update("email")} />
-         </label>
-         <label>
-           Username:
-           <input type="text"
-                  value={this.state.username}
-                  onChange={this.update("username")} />
-          </label>
-          <label>
-            Password:
+              value={this.state.email}
+              onChange={this.update("email")} />
+          </div>
+          <div>
+            <label>Username:</label>
+            <input type="text"
+              value={this.state.username}
+              onChange={this.update("username")} />
+          </div>
+          <div>
+            <label>Password: </label>
             <input type="password"
-                   value={this.state.password}
-                   onChange={this.update("password")} />
+              value={this.state.password}
+              onChange={this.update("password")} />
+          </div>
             <input type="submit" value="Submit" />
-          </label>
         </form>
         <Link to="/login">Have an Account?</Link>
       </div>
@@ -57,21 +63,21 @@ class SessionPage extends React.Component {
 
   loginForm() {
     return(
-      <div>
-        <h2>Hisashiburi! Welcome back.</h2>
+      <div className="session-form">
+        <h3>Hisashiburi! Welcome back.</h3>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Username:
+          <div>
+            <label>Username:</label>
             <input type="text"
               value={this.state.username}
               onChange={this.update("username")} />
-          </label>
-          <label>
-            Password:
+          </div>
+          <div>
+            <label>Password:</label>
             <input type="password"
                    value={this.state.password}
                    onChange={this.update("password")} />
-          </label>
+          </div>
           <input type="submit" value="Submit" />
         </form>
         <Link to="/signup">Don't have an Account?</Link>
@@ -80,12 +86,19 @@ class SessionPage extends React.Component {
   }
 
   render() {
-    if (this.props.formType === "login") {
-      return this.loginForm();
-    } else {
-      return this.signupForm();
-    }
+    const form = this.props.formType === "login" ? this.loginForm() : this.signupForm();
+
+    return (
+      <div className="login">
+        <h1 className="japanese">そう言うこと</h1>
+        <div className="sakura">
+          <img src={window.assets.light_cherry} />
+          <img src={window.assets.cherry_falling} />
+        </div>
+        {form}
+      </div>
+    );
   }
 }
 
-export default SessionPage;
+export default withRouter(SessionPage);

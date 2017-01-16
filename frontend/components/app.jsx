@@ -1,11 +1,10 @@
 import React from 'react';
+import Header from './header/header_container'
 import { Link } from 'react-router';
 
 const App = ({ children }) => (
   <div>
-    <header>
-      <h1>WOAH DUDE WOW</h1>
-    </header>
+    <Header />
     {children}
   </div>
 );

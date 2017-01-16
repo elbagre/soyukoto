@@ -1,3 +1,58 @@
-// Place all the styles related to the api/sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: 'Nagayama';
+  src: local("nagayama_kai"),
+       url('nagayama_kai08.otf');
+  font-weight: bold;
+}
+
+.japanese {
+  font-family: 'Nagayama';
+}
+
+.login {
+  background: whitesmoke;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+
+  .sakura {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+
+.session-form {
+  position: absolute;
+  top: 200px;
+  left: 33%;
+  right: 33%;
+  width: 33%;
+  height: 50vh;
+  background: salmon;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+
+      label {
+        width: 25%;
+        padding: 10px;
+      }
+
+      input {
+        width: 50%;
+        border-radius: 5px;
+        height: 10px;
+        padding: 10px;
+      }
+    }
+  }
+}
