@@ -1,26 +1,47 @@
 .grids {
+  background: #fff;
   position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  margin-top: 100px;
 }
 
 .group-axis {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  min-height: 62px;
+  max-height: 62px;
   width: 780px;
 
   li {
     display: flex;
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
     align-items: center;
     padding: 10px;
-    width: 51px;
-    height: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    height: 40px;
     font-size: 30px;
     color: #aaa;
     justify-content: center;
   }
 
   li:first-child {
-    margin-left: 71px;
+    margin-left: 72px;
+    border-left: 1px solid #ccc;
+  }
+
+  li:last-child {
+    border-right: 1px solid #ccc;
   }
 }
 
@@ -37,20 +58,25 @@
     display: flex;
     flex-direction: column;
     li {
+      font-family: "Times New Roman";
+      font-weight: bolder;
+      justify-content: center;
       background: #fff;
       display: flex;
       align-items: center;
       padding: 10px;
       width: 50px;
-      height: 50px;
+      min-height: 50px;
+      max-height: 50px;
       border-right: 1px solid #ccc;
       border-top: 1px solid #ccc;
       cursor: pointer;
     }
 
     li:hover{
-      background: none;
-      color: transparent;
+      font-size: 30px;
+      background: #FABCBC;
+      color: #fff;
     }
 
     li:last-child {
@@ -59,23 +85,40 @@
   }
 
   ul:first-child {
-    border: 0;
+    border: 1px solid #aaa;
     height: auto;
     display: flex;
     flex-direction: row;
-    width: 100%;
-
+    width: 70px;
+    background: #eee;
     li {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background: #eee;
+      min-height: 51px;
+      max-height: 51px;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-weight: normal;
       border: 0;
       justify-content: center;
       cursor: default;
+    }
+
+    li:last-child {
+      min-height: 50px;
+      max-height: 50px;
+    }
+
+    li:hover{
+      background: #eee;
     }
   }
 
   ul:nth-child(1) {
     display: flex;
     flex-direction: column;
-    border: 0;
+    border: 1px solid #ccc;
 
     li {
       border: 0;
@@ -89,23 +132,26 @@
   }
 }
 
-.phonetics {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  ul {
-    li {
-      color: #fff;
-      justify-content: center;
-      font-size: 24px;
-      background: #FABCBC;
+.hiragana-detail {
+  font-family: 'Geni Ei Gothic';
+  div {
+    display: flex;
+    // background: salmon;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    border-bottom: 5px solid #aaa;
+    p {
+      text-align: center;
+      padding: 40px;
+      font-family: 'Geni Ei Gothic';
+      // background: orchid;
+      font-size: 150px;
+      width: 100%;
     }
-  }
-
-  ul:first-child {
-    li {
-      background: #fff;
+    p:first-child {
+      border-right: 1px solid #ccc;
+      font-weight: bold;
     }
   }
 }

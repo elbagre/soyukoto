@@ -1,4 +1,5 @@
 import React from 'react';
+import HiraganaModal from './hiragana_modal';
 
 class Hiragana extends React.Component {
   constructor(props) {
@@ -6,18 +7,71 @@ class Hiragana extends React.Component {
     this.getGroupings = this.getGroupings.bind(this);
     this.createGrid = this.createGrid.bind(this);
     this.createGridItems = this.createGridItems.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.changeKana = this.changeKana.bind(this);
+
+
+    this.state = {
+      modalOpen: false,
+      targetKana: "",
+      currentKana: "Variants"
+    }
   }
 
   componentDidMount() {
-    console.log(this.props.hiragana);
     this.props.requestAllHiragana();
   }
 
+  showEnglish(kana) {
+    return (e) => {
+      e.currentTarget.textContent = kana.syllable;
+      e.currentTarget.className = "english";
+    }
+  }
+
+  showKana(kana) {
+    return (e) => {
+      e.currentTarget.textContent = kana.kana;
+    }
+  }
+
+  changeKana() {
+    console.log(this.state.modalOpen);
+    if (this.state.currentKana === "Variants") {
+      this.setState({ currentKana: "Base" });
+    } else {
+      this.setState({ currentKana: "Variants" });
+    }
+  }
+
+  openModal(kana) {
+    if (kana.kana !== " ") {
+      return () => {
+        this.setState({
+          modalOpen: true,
+          targetKana: kana
+        });
+      }
+    }
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
+  }
+
   getGroupings() {
-    const groupings = Object.keys(this.props.hiragana);
-    return groupings.map( (group) => {
-      return this.props.hiragana[group];
-    });
+    if (this.state.currentKana === "Variants") {
+      const groupings = Object.keys(this.props.baseHiragana);
+      return groupings.map( (group) => {
+        return this.props.baseHiragana[group];
+      });
+    } else {
+      const groupings = Object.keys(this.props.variantHiragana);
+      return groupings.map( (group) => {
+        return this.props.variantHiragana[group];
+      });
+    }
   }
 
   createGrid() {
@@ -31,26 +85,13 @@ class Hiragana extends React.Component {
     });
   }
 
-  createPhonetics() {
-    const groupings = this.getGroupings();
-    return groupings.map( (group, idx) => {
-      return(
-        <ul key={idx}>
-          {this.createAnswerItems(group)}
-        </ul>
-      )
-    })
-  }
-
-  createAnswerItems(group) {
-    return group.map( (kana, idx) => {
-      return <li key={idx}>{kana.syllable}</li>
-    })
-  }
-
   createGridItems(group) {
     return group.map( (kana, idx) => {
-      return <li key={idx}>{kana.kana}</li>
+      return <li key={idx}
+                 onMouseEnter={this.showEnglish(kana)}
+                 onMouseLeave={this.showKana(kana)}
+                 onClick={this.openModal(kana)}
+                 >{kana.kana}</li>
     })
   }
 
@@ -67,34 +108,52 @@ class Hiragana extends React.Component {
   }
 
   groupAxis() {
-    return(
-      <ul className="group-axis">
-        <li></li>
-        <li>K</li>
-        <li>S</li>
-        <li>T</li>
-        <li>Y</li>
-        <li>N</li>
-        <li>H</li>
-        <li>M</li>
-        <li>R</li>
-        <li></li>
-      </ul>
-    )
+    if (this.state.currentKana === "Variants") {
+      return(
+        <ul className="group-axis">
+          <li>∅</li>
+          <li>K</li>
+          <li>S</li>
+          <li>T</li>
+          <li>N</li>
+          <li>H</li>
+          <li>M</li>
+          <li>R</li>
+          <li>Y</li>
+          <li>W</li>
+        </ul>
+      );
+    } else {
+      return(
+        <ul className="group-axis">
+          <li>K</li>
+          <li>G</li>
+          <li>S</li>
+          <li>Z</li>
+          <li>T</li>
+          <li>D</li>
+          <li>H</li>
+          <li>B</li>
+          <li>P</li>
+        </ul>
+      );
+    }
   }
 
   render() {
     return(
       <div className="grids">
-        {this.groupAxis()}
-        <div className="kana-grid">
-          {this.phoneticAxis()}
-          {this.createGrid()}
-          <div className="kana-grid phonetics">
+        <div className="table">
+          {this.groupAxis()}
+          <div className="kana-grid">
             {this.phoneticAxis()}
-            {this.createPhonetics()}
+            {this.createGrid()}
           </div>
         </div>
+        <button onClick={this.changeKana}>{this.state.currentKana}</button>
+        <HiraganaModal modalOpen={this.state.modalOpen}
+                       closeModal={this.closeModal}
+                       hiragana={this.state.targetKana} />
       </div>
     )
   }

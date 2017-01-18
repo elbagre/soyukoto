@@ -3,8 +3,8 @@ import * as Action from '../../actions/hiragana_actions';
 import Hiragana from './hiragana';
 
 const mapStateToProps = ({ session, hiragana }) => ({
-  currentUser: session.currentUser,
-  hiragana
+  baseHiragana: hiragana.normalGroupings,
+  variantHiragana: hiragana.variantGroupings
 });
 
 const mapDispatchToProps = (dispatch) => ({
