@@ -1,7 +1,7 @@
 import React from 'react';
-import HiraganaModal from './hiragana_modal';
+import KatakanaModal from './katakana_modal';
 
-class Hiragana extends React.Component {
+class Katakana extends React.Component {
   constructor(props) {
     super(props);
     this.getGroupings = this.getGroupings.bind(this);
@@ -20,7 +20,7 @@ class Hiragana extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllHiragana();
+    this.props.requestAllKatakana();
   }
 
   showEnglish(kana) {
@@ -37,6 +37,7 @@ class Hiragana extends React.Component {
   }
 
   changeKana() {
+    console.log(this.state.modalOpen);
     if (this.state.currentKana === "Variants") {
       this.setState({ currentKana: "Base" });
     } else {
@@ -61,14 +62,14 @@ class Hiragana extends React.Component {
 
   getGroupings() {
     if (this.state.currentKana === "Variants") {
-      const groupings = Object.keys(this.props.baseHiragana);
+      const groupings = Object.keys(this.props.baseKatakana);
       return groupings.map( (group) => {
-        return this.props.baseHiragana[group];
+        return this.props.baseKatakana[group];
       });
     } else {
-      const groupings = Object.keys(this.props.variantHiragana);
+      const groupings = Object.keys(this.props.variantKatakana);
       return groupings.map( (group) => {
-        return this.props.variantHiragana[group];
+        return this.props.variantKatakana[group];
       });
     }
   }
@@ -150,12 +151,12 @@ class Hiragana extends React.Component {
           </div>
         </div>
         <button onClick={this.changeKana}>{this.state.currentKana}</button>
-        <HiraganaModal modalOpen={this.state.modalOpen}
+        <KatakanaModal modalOpen={this.state.modalOpen}
                        closeModal={this.closeModal}
-                       hiragana={this.state.targetKana} />
+                       katakana={this.state.targetKana} />
       </div>
     )
   }
 }
 
-export default Hiragana;
+export default Katakana;

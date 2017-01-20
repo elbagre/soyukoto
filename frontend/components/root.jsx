@@ -7,6 +7,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionPageContainer from './session/session_page_container';
 import HiraganaContainer from './hiragana/hiragana_container';
+import KatakanaContainer from './katakana/katakana_container';
+import DecksContainer from './decks/decks_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -28,6 +30,8 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <Route path="/home" component={HiraganaContainer} />
+          <Route path="/katakana" component={KatakanaContainer} />
+          <Route path="/deck" component={DecksContainer} />
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>
           <Route path="/login" component={SessionPageContainer} />
@@ -39,3 +43,7 @@ const Root = ({ store }) => {
 };
 
 export default Root;
+
+// hiragana/:id/test
+// Store information related to specific kana
+// Oskar's project - reference

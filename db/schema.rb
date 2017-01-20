@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116125051) do
+ActiveRecord::Schema.define(version: 20170119211105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.integer  "deck_id",    null: false
+    t.integer  "item_id",    null: false
+    t.string   "item_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hiraganas", force: :cascade do |t|
     t.string   "kana"
@@ -27,6 +42,18 @@ ActiveRecord::Schema.define(version: 20170116125051) do
   add_index "hiraganas", ["kana", "group"], name: "index_hiraganas_on_kana_and_group", using: :btree
   add_index "hiraganas", ["kana", "syllable"], name: "index_hiraganas_on_kana_and_syllable", using: :btree
   add_index "hiraganas", ["kana"], name: "index_hiraganas_on_kana", using: :btree
+
+  create_table "katakanas", force: :cascade do |t|
+    t.string   "kana"
+    t.string   "syllable"
+    t.integer  "group",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "katakanas", ["kana", "group"], name: "index_katakanas_on_kana_and_group", using: :btree
+  add_index "katakanas", ["kana", "syllable"], name: "index_katakanas_on_kana_and_syllable", using: :btree
+  add_index "katakanas", ["kana"], name: "index_katakanas_on_kana", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

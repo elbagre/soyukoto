@@ -32,16 +32,15 @@
   }
 
   .sidebar {
+    background: #FEF1F1;
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     width: 200px;
     margin-right: 0;
-    border-left: 2px solid #ccc;
     z-index: 1;
-    background: #fff;
-    div {
+      div {
       height: 100%;
       ul {
         display: flex;
@@ -69,17 +68,19 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: #E59A9A;
+    background: #FEF1F1;
 
 
     ul {
       margin-top: 60px;
       display: flex;
       flex-direction: column;
+      height: 60%;
       a {
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #FEF1F1;
         color: #fff;
         font-weight: lighter;
+        background: #F0ADAD;
         font-size: 12px;
         display: block;
         height: auto;

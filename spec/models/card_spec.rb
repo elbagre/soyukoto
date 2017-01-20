@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: hiraganas
+# Table name: cards
 #
 #  id         :integer          not null, primary key
-#  kana       :string
-#  syllable   :string
-#  group      :integer          not null
+#  deck_id    :integer          not null
+#  item_id    :integer          not null
+#  item_type  :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'rails_helper'
 
-RSpec.describe Hiragana, type: :model do
+RSpec.describe Card, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

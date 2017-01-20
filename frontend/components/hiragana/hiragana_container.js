@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
-import * as Action from '../../actions/hiragana_actions';
+import * as Action from '../../actions/kana_actions';
 import Hiragana from './hiragana';
 
-const mapStateToProps = ({ session, hiragana }) => ({
-  baseHiragana: hiragana.normalGroupings,
-  variantHiragana: hiragana.variantGroupings
-});
+const mapStateToProps = ({ session, kana }) => {
+  return ({
+    baseHiragana: kana.hiragana.normalGroupings,
+    variantHiragana: kana.hiragana.variantGroupings
+  });
+}
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllHiragana: () => dispatch(Action.requestAllHiragana()),

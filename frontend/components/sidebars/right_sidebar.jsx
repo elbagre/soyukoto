@@ -26,6 +26,15 @@ class RightSidebar extends React.Component {
           </ul>
         </div>
       );
+    } else if (this.props.location === "deck") {
+      return (
+        <div>
+          <ul>
+            <li>勉強</li>
+            <li>{"Study"}</li>
+          </ul>
+        </div>
+      )
     }
   }
 
