@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'Nagayama';
+  src: local("nagayama_kai"), url("nagayama_kai08.otf");
+  font-weight: bold;
+}
+/* line 8, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.error {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  top: 5%;
+  left: 33%;
+  width: 33%;
+  height: 19%;
+}
+/* line 18, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.error li {
+  font-style: italic;
+  width: 425px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid #aaa;
+  border-left: 10px solid #E59A9A;
+  color: #000;
+}
+
+/* line 29, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.japanese {
+  font-family: 'Nagayama';
+}
+/* line 31, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.japanese p {
+  font-family: inherit;
+  font-size: 30px;
+  writing-mode: vertical-rl;
+  float: left;
+}
+
+/* line 39, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.haiku {
+  position: absolute;
+  top: 33%;
+  right: 5%;
+}
+/* line 45, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.haiku .japanese p {
+  padding: 0 20px;
+}
+
+/* line 52, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.login {
+  background: whitesmoke;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+/* line 59, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.login .sakura {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* line 71, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form {
+  position: absolute;
+  top: 200px;
+  left: 33%;
+  right: 33%;
+  width: 33%;
+  height: 300px;
+  background: whitesmoke;
+}
+/* line 80, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form h3 {
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 2px solid #aaa;
+}
+/* line 86, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form {
+  display: flex;
+  flex-direction: column;
+}
+/* line 91, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  padding: 10px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+/* line 99, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div label {
+  width: 100px;
+  padding: 10px;
+  color: #708090;
+}
+/* line 105, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div input {
+  width: 75%;
+  border-radius: 5px;
+  height: 10px;
+  padding: 10px;
+}
+/* line 112, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div input[type="submit"] {
+  width: 70px;
+  margin: 10px 0 10px 60px;
+  height: auto;
+}
+/* line 118, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div a {
+  padding: 10px;
+  margin: 10px 40px;
+  text-align: center;
+  color: #ccc;
+}
+/* line 125, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div a:hover {
+  color: #000;
+}
+/* line 130, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form form div:last-child {
+  width: 440px;
+  padding: 0;
+  margin: 0;
+}
+/* line 137, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/api/sessions.scss */
+.session-form div:last-child {
+  display: flex;
+  width: 440px;
+  justify-content: flex-end;
+}

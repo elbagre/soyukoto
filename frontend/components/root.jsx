@@ -9,6 +9,7 @@ import SessionPageContainer from './session/session_page_container';
 import HiraganaContainer from './hiragana/hiragana_container';
 import KatakanaContainer from './katakana/katakana_container';
 import DecksContainer from './decks/decks_container';
+// import ReviewContainer from './review/review_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -25,13 +26,15 @@ const Root = ({ store }) => {
     }
   };
 
+  // <Route path="/deck/:id/review" component={ReviewContainer} />
   return(
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <Route path="/home" component={HiraganaContainer} />
           <Route path="/katakana" component={KatakanaContainer} />
-          <Route path="/deck" component={DecksContainer} />
+          <Route path="/deck" component={DecksContainer}>
+          </Route>
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>
           <Route path="/login" component={SessionPageContainer} />

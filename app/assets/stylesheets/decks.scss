@@ -28,6 +28,7 @@
   display: flex;
   flex-wrap: wrap;
   li {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,6 +51,16 @@
       color: #000;
       font-family: 'Kouzan';
       font-size: 72px;
+    }
+  }
+
+  li:hover {
+    color: #000;
+    p {
+      background: #F0ADAD;
+      border: 1px solid #BD5A5A;
+;
+      color: #fff;
     }
   }
 }

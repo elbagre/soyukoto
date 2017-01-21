@@ -1,0 +1,98 @@
+/* line 1, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* line 14, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.header h3 {
+  margin-left: 33%;
+  margin: 0 auto;
+}
+/* line 19, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.header div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 33%;
+}
+/* line 24, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.header div p {
+  padding: 0 50px;
+}
+/* line 28, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.header div button {
+  margin: 0 50px;
+}
+
+/* line 34, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.sidebar {
+  background: #FEF1F1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  margin-right: 0;
+  z-index: 1;
+}
+/* line 43, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.sidebar div {
+  height: 100%;
+}
+/* line 45, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.sidebar div ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Kouzan';
+  height: 100%;
+}
+/* line 51, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.sidebar div ul li {
+  font-size: 100px;
+  padding: 0 10px;
+  writing-mode: vertical-rl;
+}
+/* line 57, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.sidebar div ul li:nth-child(2n) {
+  font-size: 30px;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+/* line 65, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.left-sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #FEF1F1;
+}
+/* line 74, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.left-sidebar ul {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+}
+/* line 79, /Users/petermckinley/Desktop/soyukoto/app/assets/stylesheets/header.scss */
+.left-sidebar ul a {
+  border-bottom: 2px solid #FEF1F1;
+  color: #fff;
+  font-weight: lighter;
+  background: #F0ADAD;
+  font-size: 12px;
+  display: block;
+  height: auto;
+  width: 160px;
+  padding: 10px 20px;
+}
