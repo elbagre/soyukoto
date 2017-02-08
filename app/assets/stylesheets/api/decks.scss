@@ -111,12 +111,24 @@
   left: 200px;
   top: 198px;
 
-  h3 {
+  .decks-nav {
     color: #000;
     padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     background: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    a {
+      font-size: 18px;
+      color: #aaa;
+    }
+
+    a:hover {
+      color: #000;
+    }
   }
 }
 

@@ -17,10 +17,8 @@ class Header extends React.Component {
       return(
         <div className="header">
           <div />
-          <h3>行こうよ</h3>
           <h3>Ikoyo</h3>
           <div>
-            <p>Youkoso {this.props.currentUser.username}</p>
             <button onClick={this.props.logout}>Logout</button>
           </div>
         </div>

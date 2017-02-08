@@ -1,5 +1,6 @@
 import React from 'react';
 import DeckModal from './deck_modal';
+import NewDeckModal from './new_deck_modal';
 
 class Decks extends React.Component {
   constructor(props) {
@@ -7,9 +8,12 @@ class Decks extends React.Component {
     this.decks = this.decks.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.openCreateModal = this.openCreateModal.bind(this);
+    this.closeCreateModal = this.closeCreateModal.bind(this);
 
     this.state = {
       modalOpen: false,
+      createModalOpen: false
       currentDeck: { title: "NULL", description: "", cards: [] }
     }
   }
@@ -27,11 +31,26 @@ class Decks extends React.Component {
     };
   }
 
+  openCreateModal() {
+    this.setState({
+      modalOpen: true,
+    })
+  }
+
   closeModal() {
     this.setState({
       modalOpen: false,
       currentDeck: { title: "NULL", description: "", cards: [] }
     });
+  }
+
+  closeCreateModal() {
+    createModalOpen: false,
+    currentDeck: this.props.currentDeck
+  }
+
+  handleDeckCreation() {
+
   }
 
   decks() {
@@ -50,7 +69,10 @@ class Decks extends React.Component {
       <div className="decks">
         <h1>Flashcards</h1>
         <div className="decks-container">
-          <h3>Decks</h3>
+          <div className="decks-nav">
+            <h3>Decks</h3>
+            <a onClick={this.handleClick}>New Deck</a>
+          </div>
           <ul className="decks-list">
             {this.decks()}
           </ul>

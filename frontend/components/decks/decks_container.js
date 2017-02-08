@@ -4,7 +4,8 @@ import Decks from './decks';
 
 const mapStateToProps = ({ session, decks }) => ({
     currentUser: session.currentUser,
-    decks: decks.index
+    decks: decks.index,
+    currentDeck: decks.detail
 });
 
 const mapDispatchToProps = (dispatch) => ({
