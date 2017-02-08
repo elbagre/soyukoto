@@ -9,6 +9,7 @@
     height: 50vh;
     justify-content: center;
     align-items: center;
+    cursor: default;
   }
 
   .review-nav {
@@ -23,6 +24,15 @@
       background: #aaa;
       color: #fff;
       font-size: 36px;
+      border-radius: 10px;
+    }
+
+    .fail {
+      background: red;
+    }
+
+    .pass {
+      background: green;
     }
   }
 }

@@ -30,7 +30,27 @@ class Review extends React.Component {
     }
   }
 
-  nextCard(e) {
+  failCard(e) {
+    if (this.state.cards.length > 1) {
+      this.setState({
+        cards: this.state.cards.slice(1)
+      });
+    } else {
+      hashHistory.push('/deck');
+    }
+  }
+
+  persistCard(e) {
+    if (this.state.cards.length > 1) {
+      this.setState({
+        cards: this.state.cards.slice(1)
+      });
+    } else {
+      hashHistory.push('/deck');
+    }
+  }
+
+  passCard(e) {
     if (this.state.cards.length > 1) {
       this.setState({
         cards: this.state.cards.slice(1)
@@ -62,9 +82,13 @@ class Review extends React.Component {
                 {this.state.cards[0].item}
           </div>
           <div className="review-nav">
-            <button>×</button>
-            <button></button>
-            <button onClick={this.nextCard.bind(this)}>○</button>
+            <button className="fail"
+                    onClick={this.failCard.bind(this)}
+                    >×</button>
+            <button onClick={this.persistCard.bind(this)}>~</button>
+            <button className="pass"
+                    onClick={this.passCard.bind(this)}
+                    >○</button>
           </div>
         </div>
       );
