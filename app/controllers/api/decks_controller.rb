@@ -27,7 +27,7 @@ class Api::DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id]).preload(:hiragana_cards)
+    @deck = Deck.where(id: params[:id]).preload(:hiragana_cards).first
     render :show
   end
 

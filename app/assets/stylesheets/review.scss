@@ -1,4 +1,28 @@
 .review {
-  margin-top: 60px;
-  margin-left: 200px;
+  margin: 60px 200px 0 200px;
+  .review-item {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 150px;
+    font-weight: bold;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .review-nav {
+    width: 50%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      width: 25%;
+      background: #aaa;
+      color: #fff;
+      font-size: 36px;
+    }
+  }
 }

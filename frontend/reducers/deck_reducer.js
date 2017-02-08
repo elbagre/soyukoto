@@ -10,9 +10,9 @@ const DeckReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case Action.RECEIVE_ALL_DECKS:
-      return merge({}, { index: action.decks }, state);
+      return merge({}, state, { index: action.decks });
     case Action.RECEIVE_DECK:
-      return merge({}, { detail: action.deck}, state);
+      return merge({}, state, { detail: action.deck});
     default:
       return state;
   }
