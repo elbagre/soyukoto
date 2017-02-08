@@ -6,12 +6,22 @@ class Review extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.requestDeck(this.props.location);
+  }
+
   render() {
-    return(
-      <div className="review">
-        <h1>Review</h1>
-      </div>
-    )
+    if (this.props.deck) {
+      return(
+        <div className="review">
+          <h1>{this.props.deck.id}</h1>
+        </div>
+      );
+    } else {
+      return(
+        <div />
+      );
+    }
   }
 }
 

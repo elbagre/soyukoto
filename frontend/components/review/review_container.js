@@ -9,10 +9,9 @@ const mapStateToProps = ({ decks }) => {
 }
 
 const mapDispatchToProps = (dispatch, { location }) => {
-  debugger
   return({
-    requestDeck: (id) => dispatch(requestDeck(id)),
-    deck: location.pathname.slice(6, 8)
+    requestDeck: (id) => dispatch(Deck.requestDeck(id)),
+    location: location.pathname.slice(6, 8)
   });
 }
 
