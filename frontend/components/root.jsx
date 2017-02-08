@@ -33,9 +33,8 @@ const Root = ({ store }) => {
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <Route path="/home" component={HiraganaContainer} />
           <Route path="/katakana" component={KatakanaContainer} />
-          <Route path="/deck" component={DecksContainer}>
-            <Route path="/deck/:id/review" component={ReviewContainer} />
-          </Route>
+          <Route path="/deck" component={DecksContainer} />
+          <Route path="/deck/:id/review" component={ReviewContainer} />
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>
           <Route path="/login" component={SessionPageContainer} />
