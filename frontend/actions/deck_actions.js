@@ -29,6 +29,7 @@ export const receiveDeck = (deck) => ({
 
 export const createDeck = (deck) => (dispatch) => {
   Util.createDeck(deck)
+      .then( (deck) => dispatch(receiveDeck(deck)))
       .then( () => dispatch(requestAllDecks()));
 }
 

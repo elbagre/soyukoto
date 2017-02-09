@@ -9,6 +9,7 @@ import SessionPageContainer from './session/session_page_container';
 import HiraganaContainer from './hiragana/hiragana_container';
 import KatakanaContainer from './katakana/katakana_container';
 import DecksContainer from './decks/decks_container';
+import DeckContainer from './decks/deck_container';
 import ReviewContainer from './review/review_container';
 
 const Root = ({ store }) => {
@@ -34,6 +35,7 @@ const Root = ({ store }) => {
           <Route path="/home" component={HiraganaContainer} />
           <Route path="/katakana" component={KatakanaContainer} />
           <Route path="/deck" component={DecksContainer} />
+          <Route path="/deck/:id" component={DeckContainer} />
           <Route path="/deck/:id/review" component={ReviewContainer} />
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>
