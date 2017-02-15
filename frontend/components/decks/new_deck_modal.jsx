@@ -5,9 +5,13 @@ import Modal from 'react-modal';
 class NewDeckModal extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.state = {
       modalOpen: this.props.modalOpen,
-      name: ""
+      name: "",
+      description: ""
     };
 
     this.style = {
@@ -17,18 +21,19 @@ class NewDeckModal extends React.Component {
         left            : 0,
         right           : 0,
         bottom          : 0,
-        backgroundColor : 'rgba(0, 0, 0, 0.8)',
+        backgroundColor : 'rgba(0, 0, 0, 0.1)',
         zIndex          : 10
       },
       content : {
         opacity         : 1,
-        backgroundColor : 'whitesmoke',
+        backgroundColor : '#fff',
         position        : 'fixed',
-        top             : '0',
+        top             : '20%',
+        height          : '255px',
         width           : '600px',
         margin          : '0 auto',
         bottom          : '0',
-        border          : '1px solid #ccc',
+        border          : '3px solid #aaa',
         padding         : '20px',
         zIndex          : 11
       }
@@ -37,6 +42,22 @@ class NewDeckModal extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ modalOpen: nextProps.modalOpen })
+  }
+
+  handleChange(type) {
+    return (e) => {
+      if (type === "name") {
+        this.setState({
+          name: e.currentTarget.value
+        });
+        console.log(this.state.name);
+      } else {
+        this.setState({
+          description: e.currentTarget.value
+        });
+        console.log(this.state.description);
+      }
+    }
   }
 
   handleSubmit(e) {
@@ -54,12 +75,19 @@ class NewDeckModal extends React.Component {
         style={this.style}
         contentLabel="NewDeckModal">
         <div className="deck-create">
-          <form>
-            <label>Deck Name</label>
-            <input type="text">{this.state.name}</input>
-            <input type="submit"
-                   onClick={this.handleCreate}
-                   >Create Deck</input>
+          <form className="deck-form" onSubmit={this.handleSubmit}>
+            <h3>Create New Deck</h3>
+            <label>Name
+              <input type="text"
+                onChange={this.handleChange("name")}
+                value={this.state.name} />
+            </label>
+            <label>Description
+              <input type="text"
+                onChange={this.handleChange("description")}
+                value={this.state.description} />
+            </label>
+           <input type="submit" value="Submit"/>
           </form>
         </div>
       </Modal>

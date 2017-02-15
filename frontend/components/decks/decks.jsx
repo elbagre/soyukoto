@@ -1,7 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 // import DeckModal from './deck_modal';
-// import NewDeckModal from './new_deck_modal';
+import NewDeckModal from './new_deck_modal';
 
 class Decks extends React.Component {
   constructor(props) {
@@ -9,14 +9,10 @@ class Decks extends React.Component {
     this.decks = this.decks.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.openCreateModal = this.openCreateModal.bind(this);
-    this.closeCreateModal = this.closeCreateModal.bind(this);
     this.openDeck = this.openDeck.bind(this);
 
     this.state = {
       modalOpen: false,
-      createModalOpen: false,
-      currentDeck: { title: "NULL", description: "", cards: [] }
     }
   }
 
@@ -24,16 +20,7 @@ class Decks extends React.Component {
     this.props.requestDecks();
   }
 
-  openModal(deck) {
-    return () => {
-      this.setState({
-        modalOpen: true,
-        currentDeck: deck
-      });
-    };
-  }
-
-  openCreateModal() {
+  openModal() {
     this.setState({
       modalOpen: true,
     });
@@ -42,14 +29,6 @@ class Decks extends React.Component {
   closeModal() {
     this.setState({
       modalOpen: false,
-      currentDeck: { title: "NULL", description: "", cards: [] }
-    });
-  }
-
-  closeCreateModal() {
-    this.setState({
-      createModalOpen: false,
-      currentDeck: this.props.currentDeck
     });
   }
 
@@ -77,12 +56,14 @@ class Decks extends React.Component {
         <div className="decks-container">
           <div className="decks-nav">
             <h3>Decks</h3>
-            <a onClick={this.openCreateModal}>New Deck</a>
+            <a onClick={this.openModal}>New Deck</a>
           </div>
           <ul className="decks-list">
             {this.decks()}
           </ul>
         </div>
+        <NewDeckModal modalOpen={this.state.modalOpen}
+                      closeModal={this.closeModal} />
       </div>
     )
   }
@@ -94,5 +75,3 @@ export default Decks;
 //            closeModal={this.closeModal}
 //            deck={this.state.currentDeck}
 //            />
-// <NewDeckModal modalOpen={this.state.createModalOpen}
-//               closeModal={this.closeCreateModal} />

@@ -174,3 +174,36 @@
     }
   }
 }
+
+.deck-form {
+  display: flex;
+  flex-direction: column;
+  label {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    color: #aaa;
+
+    input[type="text"] {
+      color: #000;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 10px 0;
+      padding: 5px 10px;
+    }
+  }
+
+  input[type="submit"] {
+    align-self: flex-end;
+    background: #eee;
+    color: #aaa;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+
+  input[type="submit"]:hover {
+    background: #F0ADAD;
+    border: 1px solid #BD5A5A;
+    color: #fff;
+  }
+}
