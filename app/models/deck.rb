@@ -10,6 +10,8 @@
 #
 
 class Deck < ActiveRecord::Base
+  validates :name, presence: true, length: { minimum: 1, maximum: 15 }, uniqueness: true
+
   has_many :associated_cards,
     foreign_key: :deck_id,
     class_name: "Card"

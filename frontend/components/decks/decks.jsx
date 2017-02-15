@@ -40,12 +40,21 @@ class Decks extends React.Component {
 
   decks() {
     return this.props.decks.map( (deck, idx) => {
-      return(
-        <li key={idx} onClick={this.openDeck(deck)}>
-          <h4>{deck.name}</h4>
-          <p>{deck.cards[0].item}</p>
-        </li>
-      );
+      if (!deck.cards.length) {
+        return(
+          <li key={idx} onClick={this.openDeck(deck)}>
+            <h4>{deck.name}</h4>
+            <p>∅</p>
+          </li>
+        );
+      } else {
+        return(
+          <li key={idx} onClick={this.openDeck(deck)}>
+            <h4>{deck.name}</h4>
+            <p>{deck.cards[0].item}</p>
+          </li>
+        );
+      }
     });
   }
 
@@ -63,6 +72,8 @@ class Decks extends React.Component {
           </ul>
         </div>
         <NewDeckModal modalOpen={this.state.modalOpen}
+                      createDeck={this.props.createDeck}
+                      currentUser={this.props.currentUser}
                       closeModal={this.closeModal} />
       </div>
     )

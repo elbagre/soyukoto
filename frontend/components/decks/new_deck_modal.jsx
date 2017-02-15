@@ -50,12 +50,10 @@ class NewDeckModal extends React.Component {
         this.setState({
           name: e.currentTarget.value
         });
-        console.log(this.state.name);
       } else {
         this.setState({
           description: e.currentTarget.value
         });
-        console.log(this.state.description);
       }
     }
   }
