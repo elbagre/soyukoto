@@ -11,7 +11,8 @@ class NewDeckModal extends React.Component {
     this.state = {
       modalOpen: this.props.modalOpen,
       name: "",
-      description: ""
+      description: "",
+      search: ""
     };
 
     this.style = {
@@ -21,27 +22,27 @@ class NewDeckModal extends React.Component {
         left            : 0,
         right           : 0,
         bottom          : 0,
-        backgroundColor : 'rgba(0, 0, 0, 0.1)',
+        backgroundColor : 'rgba(0, 0, 0, 0.8)',
         zIndex          : 10
       },
       content : {
         opacity         : 1,
         backgroundColor : '#fff',
         position        : 'fixed',
-        top             : '20%',
-        height          : '255px',
+        top             : '0',
+        height          : '100vh',
         width           : '600px',
         margin          : '0 auto',
         bottom          : '0',
-        border          : '3px solid #aaa',
+        border          : '1px solid #aaa',
         padding         : '20px',
         zIndex          : 11
       }
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ modalOpen: nextProps.modalOpen })
+    this.setState({ modalOpen: nextProps.modalOpen });
   }
 
   handleChange(type) {
@@ -50,12 +51,16 @@ class NewDeckModal extends React.Component {
         this.setState({
           name: e.currentTarget.value
         });
+      } else if (type === "search") {
+        this.setState({
+          search: e.currentTarget.value
+        });
       } else {
         this.setState({
           description: e.currentTarget.value
         });
       }
-    }
+    };
   }
 
   handleSubmit(e) {
@@ -66,6 +71,12 @@ class NewDeckModal extends React.Component {
     });
   }
 
+  cardQueries() {
+    return (
+      <li></li>
+    );
+  }
+
   render() {
     return(
       <Modal isOpen={this.props.modalOpen}
@@ -74,19 +85,29 @@ class NewDeckModal extends React.Component {
         contentLabel="NewDeckModal">
         <div className="deck-create">
           <form className="deck-form" onSubmit={this.handleSubmit}>
-            <h3>Create New Deck</h3>
-            <label>Name
+            <div>
+              <h3>Create New Deck</h3>
+              <input type="submit" value="Submit"/>
+            </div>
+            <div>
+              <label>Name</label>
               <input type="text"
                 onChange={this.handleChange("name")}
                 value={this.state.name} />
-            </label>
-            <label>Description
+            </div>
+            <div>
+              <label>Description</label>
               <input type="text"
                 onChange={this.handleChange("description")}
                 value={this.state.description} />
-            </label>
-           <input type="submit" value="Submit"/>
-          </form>
+            </div>
+            <div>
+              <input type="text" onChange={this.handleChange("search")} placeholder="Add Cards (optional)" value={this.state.search} />
+              <ul>
+                {this.cardQueries()}
+              </ul>
+            </div>
+         </form>
         </div>
       </Modal>
     );
