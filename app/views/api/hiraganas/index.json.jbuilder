@@ -81,3 +81,5 @@ end
 json.kana @hiraganas.map { |kana| kana.kana }
 
 json.answers @hiraganas.map { |kana| kana.syllable }
+
+##consider redis for caching or memcached

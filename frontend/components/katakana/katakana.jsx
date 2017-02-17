@@ -20,7 +20,9 @@ class Katakana extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllKatakana();
+    if (!this.props.baseKatakana.length) {
+      this.props.requestAllKatakana();
+    }
   }
 
   showEnglish(kana) {

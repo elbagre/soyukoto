@@ -190,11 +190,11 @@ kata_n = Katakana.create(kana: "ン", syllable: "n", group: 10)
 Searchable.destroy_all
 
 Katakana.all.each do |kana|
-  Searchable.create(transliteration: kana.syllable, item_id: kana.id, item_type: "Katakana")
+  Searchable.create(transliteration: kana.syllable, translation: kana.kana, item_id: kana.id, item_type: "Katakana")
 end
 
 Hiragana.all.each do |kana|
-  Searchable.create(transliteration: kana.syllable, item_id: kana.id, item_type: "Hiragana")
+  Searchable.create(transliteration: kana.syllable, translation: kana.kana, item_id: kana.id, item_type: "Hiragana")
 end
 
 Deck.destroy_all

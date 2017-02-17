@@ -214,12 +214,73 @@
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background: #eee;
+    position: relative;
+    z-index: 2;
+
+    ul {
+      position: absolute;
+      top: 100%;
+      left: 15%;
+      right: 15%;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      overflow: hidden;
+      box-shadow: 5px 5px 5px #eee;
+      z-index: 0;
+
+      li {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          width: 40%;
+          text-align: center;
+          color: #F0ADAD;
+          padding: 10px 0;
+          background: whitesmoke;
+        }
+
+        p:first-child {
+          background: #fff;
+          padding: 10px 5px;
+           text-align: left;
+          font-weight: bold;
+          width: 20%;
+          color: #000;
+        }
+      }
+
+      li:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom: 0;
+      }
+
+      li:hover {
+        p {
+          background: #fff;
+          color: #D97B8D;
+        }
+        p:first-child {
+          color: #fff;
+          background:	#D97B8D
+        }
+      }
+    }
 
     input[type="text"] {
+      box-sizing: border-box;
       background: #fff;
-      width: 40%;
+      width: 70%;
       border-radius: 10px;
       padding: 5px 10px;
+      text-align: center;
     }
   }
 

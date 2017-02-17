@@ -20,7 +20,9 @@ class Hiragana extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllHiragana();
+    if (!this.props.baseHiragana.length) {
+      this.props.requestAllHiragana();
+    }
   }
 
   showEnglish(kana) {

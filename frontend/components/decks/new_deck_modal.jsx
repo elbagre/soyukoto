@@ -76,7 +76,11 @@ class NewDeckModal extends React.Component {
     if (this.props.queryResults.length) {
       return this.props.queryResults.map( (query, idx) => {
         return (
-          <li key={idx}>{query.item_type}: {query.transliteration}</li>
+          <li key={idx}>
+            <p>{query.item_type}</p>
+            <p>{query.transliteration}</p>
+            <p>{query.translation}</p>
+          </li>
         )
       });
     } else {
@@ -110,7 +114,7 @@ class NewDeckModal extends React.Component {
                 onChange={this.handleChange("description")}
                 value={this.state.description} />
             </div>
-            <div>
+            <div className="card-search">
               <input type="text" onChange={this.handleChange("search")} placeholder="Add Cards (optional)" value={this.state.search} />
               <ul>
                 {this.Queries()}
