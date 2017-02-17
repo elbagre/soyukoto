@@ -17,7 +17,7 @@ class SessionPage extends React.Component {
 
   componentDidUpdate() {
     if (this.props.loggedIn) {
-      this.props.router.push("/home");
+      this.props.router.push("/deck");
     }
   }
 

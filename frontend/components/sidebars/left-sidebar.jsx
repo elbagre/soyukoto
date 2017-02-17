@@ -10,8 +10,6 @@ class LeftSidebar extends React.Component {
     return(
       <div className="left-sidebar">
         <ul>
-          <Link to="/home">Hiragana</Link>
-          <Link to="/katakana">Katakana</Link>
           <Link to="/deck">Flashcards</Link>
         </ul>
       </div>
