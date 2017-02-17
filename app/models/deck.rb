@@ -21,7 +21,12 @@ class Deck < ActiveRecord::Base
     source: :item,
     source_type: "Hiragana"
 
+  has_many :katakana_cards,
+    through: :associated_cards,
+    source: :item,
+    source_type: "Katakana"
+
   def cards
-    self.hiragana_cards
+    self.hiragana_cards.to_a.concat(self.katakana_cards.to_a)
   end
 end

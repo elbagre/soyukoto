@@ -7,12 +7,18 @@ class NewDeckModal extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.queries = this.queries.bind(this);
+    this.addCard = this.addCard.bind(this);
+    this.cards = this.cards.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
 
     this.state = {
+      focused: "hidden",
       modalOpen: this.props.modalOpen,
       name: "",
       description: "",
-      search: ""
+      search: "",
+      cards: []
     };
 
     this.style = {
@@ -68,15 +74,53 @@ class NewDeckModal extends React.Component {
     e.preventDefault();
     this.props.createDeck({
       user_id: this.props.currentUser.id,
-      name: this.state.name
+      name: this.state.name,
+      description: this.state.description,
+      cards: this.state.cards
     });
+    this.clearModal();
   }
 
-  Queries() {
+  handleFocus(phase) {
+    return () => {
+      if (phase === "in") {
+        this.setState({
+          focused: "search-queries"
+        });
+      } else {
+        this.setState({
+          focused: "hidden"
+        });
+      }
+    }
+  }
+
+  clearModal() {
+    this.setState({
+      name: "",
+      description: "",
+      cards: [],
+      modalOpen: false
+    });
+
+    this.props.closeModal();
+  }
+
+  addCard(card) {
+    return () => {
+      if (this.state.cards.indexOf(card) === -1) {
+        this.setState({
+            cards: this.state.cards.concat([card])
+          });
+      }
+    };
+  }
+
+  queries() {
     if (this.props.queryResults.length) {
       return this.props.queryResults.map( (query, idx) => {
         return (
-          <li key={idx}>
+          <li key={idx} onClick={this.addCard(query)}>
             <p>{query.item_type}</p>
             <p>{query.transliteration}</p>
             <p>{query.translation}</p>
@@ -85,9 +129,17 @@ class NewDeckModal extends React.Component {
       });
     } else {
       return(
-        <li></li>
+        <span></span>
       )
     }
+  }
+
+  cards() {
+    return this.state.cards.map( (card, idx) => {
+      return(
+        <li key={idx}><p>{card.transliteration}</p><p>{card.translation}</p></li>
+      );
+    })
   }
 
   render() {
@@ -115,12 +167,19 @@ class NewDeckModal extends React.Component {
                 value={this.state.description} />
             </div>
             <div className="card-search">
-              <input type="text" onChange={this.handleChange("search")} placeholder="Add Cards (optional)" value={this.state.search} />
-              <ul>
-                {this.Queries()}
+              <input type="text"
+                     onChange={this.handleChange("search")}
+                     placeholder="Add Cards (optional)"
+                     onFocus={this.handleFocus("in")}
+                     value={this.state.search} />
+              <ul className={this.state.focused}>
+                {this.queries()}
               </ul>
             </div>
          </form>
+         <ul className="deck-cards">
+           {this.cards()}
+         </ul>
         </div>
       </Modal>
     );

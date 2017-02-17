@@ -219,21 +219,16 @@
 
     ul {
       position: absolute;
-      top: 100%;
+      top: 48px;
       left: 15%;
       right: 15%;
       width: 70%;
-      border: 1px solid #ccc;
-      border-top: 1px solid #ccc;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      overflow: hidden;
-      box-shadow: 5px 5px 5px #eee;
       z-index: 0;
 
       li {
         background: #fff;
-        border-bottom: 1px solid #ccc;
+        border: 1px solid #ccc;
+        border-top: 0;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
@@ -259,7 +254,6 @@
       li:last-child {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        border-bottom: 0;
       }
 
       li:hover {
@@ -302,4 +296,12 @@
     border: 1px solid #BD5A5A;
     color: #fff;
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.search-queries {
+  display: block;
 }
