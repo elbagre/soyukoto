@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :hiraganas, only: [:show, :index]
     resources :katakanas, only: [:show, :index]
+    resources :searchables, only: [:index]
   end
 
   root "static_pages#root"

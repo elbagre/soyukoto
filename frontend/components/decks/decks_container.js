@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
 import * as Action from '../../actions/deck_actions';
+import * as Query from '../../actions/query_actions';
 import Decks from './decks';
 
-const mapStateToProps = ({ session, decks }) => ({
+const mapStateToProps = ({ session, decks, query }) => ({
     currentUser: session.currentUser,
     decks: decks.index,
-    currentDeck: decks.detail
+    currentDeck: decks.detail,
+    queryResults: query
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  requestMatches: (query) => dispatch(Query.requestMatches(query)),
+  clearMatches: () => dispatch(Query.clearMatches()),
   requestDecks: () => dispatch(Action.requestAllDecks()),
   requestDeck: (id) => dispatch(Action.requestDeck()),
   createDeck: (deck) => dispatch(Action.createDeck(deck)),

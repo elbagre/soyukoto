@@ -72,6 +72,9 @@ class Decks extends React.Component {
           </ul>
         </div>
         <NewDeckModal modalOpen={this.state.modalOpen}
+                      requestMatches={this.props.requestMatches}
+                      clearMatches={this.props.clearMatches}
+                      queryResults={this.props.queryResults}
                       createDeck={this.props.createDeck}
                       currentUser={this.props.currentUser}
                       closeModal={this.closeModal} />
@@ -81,8 +84,3 @@ class Decks extends React.Component {
 }
 
 export default Decks;
-
-// <DeckModal modalOpen={this.state.modalOpen}
-//            closeModal={this.closeModal}
-//            deck={this.state.currentDeck}
-//            />

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119211105) do
+ActiveRecord::Schema.define(version: 20170216213842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 20170119211105) do
   add_index "katakanas", ["kana", "group"], name: "index_katakanas_on_kana_and_group", using: :btree
   add_index "katakanas", ["kana", "syllable"], name: "index_katakanas_on_kana_and_syllable", using: :btree
   add_index "katakanas", ["kana"], name: "index_katakanas_on_kana", using: :btree
+
+  create_table "searchables", force: :cascade do |t|
+    t.string   "translation",     default: ""
+    t.string   "transliteration",              null: false
+    t.integer  "item_id",                      null: false
+    t.string   "item_type",                    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "searchables", ["item_id", "item_type"], name: "index_searchables_on_item_id_and_item_type", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

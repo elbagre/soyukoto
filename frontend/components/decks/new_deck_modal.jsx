@@ -52,6 +52,7 @@ class NewDeckModal extends React.Component {
           name: e.currentTarget.value
         });
       } else if (type === "search") {
+        this.props.requestMatches(e.currentTarget.value);
         this.setState({
           search: e.currentTarget.value
         });
@@ -71,10 +72,18 @@ class NewDeckModal extends React.Component {
     });
   }
 
-  cardQueries() {
-    return (
-      <li></li>
-    );
+  Queries() {
+    if (this.props.queryResults.length) {
+      return this.props.queryResults.map( (query, idx) => {
+        return (
+          <li key={idx}>{query.item_type}: {query.transliteration}</li>
+        )
+      });
+    } else {
+      return(
+        <li></li>
+      )
+    }
   }
 
   render() {
@@ -104,7 +113,7 @@ class NewDeckModal extends React.Component {
             <div>
               <input type="text" onChange={this.handleChange("search")} placeholder="Add Cards (optional)" value={this.state.search} />
               <ul>
-                {this.cardQueries()}
+                {this.Queries()}
               </ul>
             </div>
          </form>

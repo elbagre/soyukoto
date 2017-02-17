@@ -187,6 +187,16 @@ kata_wo = Katakana.create(kana: "ヲ", syllable: "wo", group: 10)
 Katakana.create(kana: " ", syllable: " ", group: 10)
 kata_n = Katakana.create(kana: "ン", syllable: "n", group: 10)
 
+Searchable.destroy_all
+
+Katakana.all.each do |kana|
+  Searchable.create(transliteration: kana.syllable, item_id: kana.id, item_type: "Katakana")
+end
+
+Hiragana.all.each do |kana|
+  Searchable.create(transliteration: kana.syllable, item_id: kana.id, item_type: "Hiragana")
+end
+
 Deck.destroy_all
 Card.destroy_all
 

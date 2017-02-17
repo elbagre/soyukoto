@@ -15,6 +15,8 @@ class Hiragana < ActiveRecord::Base
 
   has_many :cards, as: :item
 
+  has_one :searchable, as: :item
+
   def to_card
     {
       item: self.kana,
