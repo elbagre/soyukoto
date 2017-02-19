@@ -13,7 +13,7 @@ const DeckReducer = (state = defaultState, action) => {
     case Action.RECEIVE_ALL_DECKS:
       return merge({}, state, { index: action.decks });
     case Action.RECEIVE_DECK:
-      return merge({}, state, { detail: action.deck});
+      return { index: state.index, detail: action.deck };
     default:
       return state;
   }

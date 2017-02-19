@@ -29,12 +29,12 @@ class Api::DecksController < ApplicationController
   end
 
   def index
-    @decks = Deck.all.preload(:hiragana_cards)
+    @decks = Deck.all.preload(:associated_cards, :hiragana_cards, :katakana_cards)
     render :index
   end
 
   def show
-    @deck = Deck.where(id: params[:id]).preload(:hiragana_cards, :katakana_cards).first
+    @deck = Deck.where(id: params[:id]).preload(:associated_cards, :hiragana_cards, :katakana_cards).first
     render :show
   end
 

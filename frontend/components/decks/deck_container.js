@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import * as Deck from '../../actions/deck_actions';
+import { createCard, destroyCard } from '../../actions/card_actions';
 import * as Query from '../../actions/query_actions';
 import DeckPage from './deck_page';
 
@@ -9,6 +10,8 @@ const mapStateToProps = ({ decks, query }) => ({
 });
 
 const mapDispatchToProps = (dispatch, { location }) => ({
+  createCard: (card) => dispatch(createCard(card)),
+  destroyCard: (id) => dispatch(destroyCard(id)),
   requestDeck: (id) => dispatch(Deck.requestDeck(id)),
   requestMatches: (query) => dispatch(Query.requestMatches(query)),
   location: location.pathname.slice(6)

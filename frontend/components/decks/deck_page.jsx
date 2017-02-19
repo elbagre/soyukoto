@@ -7,6 +7,7 @@ class DeckPage extends React.Component {
     this.cards = this.cards.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.destroyCard = this.destroyCard.bind(this);
     this.queries = this.queries.bind(this);
     this.state = {
       search: "",
@@ -31,6 +32,12 @@ class DeckPage extends React.Component {
     })
   }
 
+  destroyCard(id) {
+    return () => {
+      this.props.destroyCard(id);
+    };
+  }
+
   queries() {
     if (this.props.queryResults.length) {
       return this.props.queryResults.map( (query, idx) => {
@@ -53,7 +60,7 @@ class DeckPage extends React.Component {
     return this.props.deck.cards.map( (card, idx) => {
       return(
         <li key={idx}>
-          <span className="cancel">╳</span>
+          <span className="cancel" onClick={this.destroyCard(card.id)}>╳</span>
           <p>{card.item}</p>
           <p>{card.answer}</p>
         </li>

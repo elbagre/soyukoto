@@ -12,9 +12,8 @@ class Api::CardsController < ApplicationController
 
   def destroy
     card = Card.find(params[:id])
-    @deck = Deck.where(id: card.deck_id).preload(:hiragana_cards, :katakana_cards).first
-
     if card.destroy
+      @deck = Deck.where(id: card.deck_id).preload(:hiragana_cards, :katakana_cards).first
       render 'api/decks/show'
     else
       render json: card.errors.full_messages, status: 404

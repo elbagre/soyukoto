@@ -116,6 +116,20 @@ class NewDeckModal extends React.Component {
     };
   }
 
+  removeCard(card) {
+    return () => {
+      const newCards = this.state.cards.filter((el) => {
+        if (el !== card) {
+          return el;
+        }
+      });
+
+      this.setState({
+        cards: newCards
+      });
+    }
+  }
+
   queries() {
     if (this.props.queryResults.length) {
       return this.props.queryResults.map( (query, idx) => {
@@ -137,7 +151,11 @@ class NewDeckModal extends React.Component {
   cards() {
     return this.state.cards.map( (card, idx) => {
       return(
-        <li key={idx}><p>{card.transliteration}</p><p>{card.translation}</p></li>
+        <li key={idx}>
+          <span className="cancel" onClick={this.removeCard(card)}>╳</span>
+          <p>{card.translation}</p>
+          <p>{card.transliteration}</p>
+        </li>
       );
     })
   }

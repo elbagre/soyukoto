@@ -1,2 +1,1 @@
-cards = @deck.cards.map { |card| card.to_card }
-json.partial! "api/decks/deck", deck: @deck, cards: cards
+json.partial! "api/decks/deck", deck: @deck, cards: @deck.cards

@@ -14,4 +14,14 @@ class Card < ActiveRecord::Base
   belongs_to :deck
   belongs_to :item,
     polymorphic: true
+
+  def to_json
+    if self.item_type == "Hiragana" || self.item_type == "Katakana"
+      {
+        id: self.id,
+        item: self.item.kana,
+        answer: self.item.syllable
+      }
+    end
+  end
 end

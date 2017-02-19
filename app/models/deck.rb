@@ -26,7 +26,7 @@ class Deck < ActiveRecord::Base
     source: :item,
     source_type: "Katakana"
 
-  def cards
-    self.hiragana_cards.to_a.concat(self.katakana_cards.to_a)
-  end
+    def cards
+      self.associated_cards.to_a.map { |card| card.to_json }
+    end
 end
