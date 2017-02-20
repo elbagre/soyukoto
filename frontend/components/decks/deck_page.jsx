@@ -19,6 +19,10 @@ class DeckPage extends React.Component {
     this.props.requestDeck(this.props.location);
   }
 
+  componentWillUnmount() {
+    this.props.receiveDeck(null);
+  }
+
   handleChange(e) {
     this.props.requestMatches(e.currentTarget.value);
     this.setState({
