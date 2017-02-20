@@ -11,7 +11,7 @@ class Review extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestDeck(this.props.location);
+    this.props.requestDeck(this.props.deckId);
   }
 
   componentWillReceiveProps(nextProps) {

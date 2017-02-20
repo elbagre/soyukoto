@@ -4,46 +4,49 @@ import { withRouter } from 'react-router';
 class RightSidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.title = this.title.bind(this);
+    this.state = {
+      className: "hidden",
+      routes: {
+        "hiragana": ["ひらがな", "Hiragana"],
+        "katakana": ["カタカナ", "Katakana"],
+        "deck": ["勉強", "Study"]
+      }
+    }
   }
 
-  title() {
-    if (this.props.location === "home") {
-      return(
-        <div>
-          <ul>
-            <li>ひらがな</li>
-            <li>{"Hiragana"}</li>
-          </ul>
-        </div>
-      );
-    } else if (this.props.location === "katakana") {
-      return (
-        <div>
-          <ul>
-            <li>カタカナ</li>
-            <li>{"Katakana"}</li>
-          </ul>
-        </div>
-      );
-    } else if (this.props.location === "deck") {
-      return (
-        <div>
-          <ul>
-            <li>勉強</li>
-            <li>{"Study"}</li>
-          </ul>
-        </div>
-      )
+  componentDidMount() {
+    this.setClass(this.props);
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.location !== this.props.location) {
+      this.setClass(nextProps);
+    }
+  }
+
+  setClass(props) {
+    if (this.state.routes[props.location]) {
+      this.setState({ className: "sidebar" });
+    } else {
+      this.setState({ className: "hidden"});
     }
   }
 
   render() {
-    return(
-      <div className="sidebar">
-        {this.title()}
-      </div>
-    )
+    if (this.state.className === "sidebar" && this.state.routes[this.props.location]) {
+      return(
+        <div className={this.state.className}>
+          <ul>
+            <li>{this.state.routes[this.props.location][0]}</li>
+            <li>{this.state.routes[this.props.location][1]}</li>
+          </ul>
+        </div>
+      );
+    } else {
+      return(
+        <div></div>
+      );
+    }
   }
 }
 

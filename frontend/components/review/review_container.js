@@ -11,7 +11,7 @@ const mapStateToProps = ({ decks }) => {
 const mapDispatchToProps = (dispatch, { location }) => {
   return({
     requestDeck: (id) => dispatch(Deck.requestDeck(id)),
-    location: location.pathname.slice(6, 8)
+    deckId: parseInt(location.pathname.slice(6))
   });
 }
 

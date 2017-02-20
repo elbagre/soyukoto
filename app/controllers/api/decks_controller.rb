@@ -5,7 +5,7 @@ class Api::DecksController < ApplicationController
 
     if @deck.save
       cards = params[:deck][:cards].map { |_k, value| value }
-      debugger
+      
       cards.each do |card|
         Card.create(deck_id: @deck.id, item_id: card['item_id'].to_i, item_type: card['item_type'])
       end
