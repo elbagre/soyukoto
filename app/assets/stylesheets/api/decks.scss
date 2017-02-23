@@ -14,11 +14,14 @@
 
     h4 {
       padding: 10px 20px;
+      min-height: 40px;
+      box-sizing: border-box;
     }
   }
 }
 .deck-detail ul {
   display: flex;
+  position: relative;
   li > a {
     width: auto;
   }
@@ -36,9 +39,28 @@
 
   li > a {
     display: block;
-    // height: 40px;
     padding: 10px 20px;
     cursor: pointer;
+  }
+
+  li > .deck-search {
+    display: block;
+    width: 420px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  li > ul {
+    position: relative;
+    background: salmon;
+    bottom: -8px;
+    width: 33%;
+    min-width: 420px;
+
+    li {
+      width: 100%;
+    }
   }
 
   li > a:hover {
@@ -228,48 +250,6 @@
       right: 15%;
       width: 70%;
       z-index: 0;
-
-      li {
-        background: #fff;
-        border: 1px solid #ccc;
-        border-top: 0;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-
-        p {
-          width: 40%;
-          text-align: center;
-          color: #F0ADAD;
-          padding: 10px 0;
-          background: whitesmoke;
-        }
-
-        p:first-child {
-          background: #fff;
-          padding: 10px 5px;
-           text-align: left;
-          font-weight: bold;
-          width: 20%;
-          color: #000;
-        }
-      }
-
-      li:last-child {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-
-      li:hover {
-        p {
-          background: #fff;
-          color: #D97B8D;
-        }
-        p:first-child {
-          color: #fff;
-          background:	#D97B8D
-        }
-      }
     }
 
     input[type="text"] {
@@ -307,5 +287,51 @@
 }
 
 .search-queries {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  min-width: 420px;
+  z-index: 2;
+
+  li {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      width: 40%;
+      text-align: center;
+      color: #F0ADAD;
+      padding: 10px 0;
+      background: whitesmoke;
+    }
+
+    p:first-child {
+      background: #fff;
+      padding: 10px 5px;
+       text-align: left;
+      font-weight: bold;
+      width: 20%;
+      color: #000;
+    }
+  }
+
+  li:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  li:hover {
+    p {
+      background: #fff;
+      color: #D97B8D;
+    }
+    p:first-child {
+      color: #fff;
+      background:	#D97B8D
+    }
+  }
 }

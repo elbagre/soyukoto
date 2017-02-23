@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, { location }) => ({
   destroyCard: (id) => dispatch(destroyCard(id)),
   requestDeck: (id) => dispatch(Deck.requestDeck(id)),
   requestMatches: (query) => dispatch(Query.requestMatches(query)),
-  location: location.pathname.slice(6)
+  location: parseInt(location.pathname.slice(6))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckPage);

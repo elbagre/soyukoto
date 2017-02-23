@@ -35,7 +35,6 @@ class Decks extends React.Component {
   openDeck(deck) {
     return () => {
       hashHistory.push(`/deck/${deck.id}`);
-      // this.props.requestDeck(deck.id);
     }
   }
 
@@ -43,7 +42,7 @@ class Decks extends React.Component {
     return this.props.decks.map( (deck, idx) => {
       if (!deck.cards.length) {
         return(
-          <li key={idx} onClick={this.openDeck(this, deck)}>
+          <li key={idx} onClick={this.openDeck(deck)}>
             <h4>{deck.name}</h4>
             <p>∅</p>
           </li>

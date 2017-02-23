@@ -9,6 +9,7 @@ class DeckPage extends React.Component {
     this.handleFocus = this.handleFocus.bind(this);
     this.destroyCard = this.destroyCard.bind(this);
     this.queries = this.queries.bind(this);
+    this.createCard = this.createCard.bind(this);
     this.state = {
       search: "",
       focused: "hidden"
@@ -36,6 +37,16 @@ class DeckPage extends React.Component {
     })
   }
 
+  createCard(card) {
+    return () => {
+      this.props.createCard({
+        deck_id: this.props.deck.id,
+        item_type: card.item_type,
+        item_id: card.item_id
+      });
+    }
+  }
+
   destroyCard(id) {
     return () => {
       this.props.destroyCard(id);
@@ -61,15 +72,17 @@ class DeckPage extends React.Component {
   }
 
   cards() {
-    return this.props.deck.cards.map( (card, idx) => {
-      return(
-        <li key={idx}>
-          <span className="cancel" onClick={this.destroyCard(card.id)}>╳</span>
-          <p>{card.item}</p>
-          <p>{card.answer}</p>
-        </li>
-      );
-    });
+    if (this.props.deck.cards) {
+      return this.props.deck.cards.map( (card, idx) => {
+        return(
+          <li key={idx}>
+            <span className="cancel" onClick={this.destroyCard(card.id)}>╳</span>
+            <p>{card.item}</p>
+            <p>{card.answer}</p>
+          </li>
+        );
+      });
+    }
   }
 
   render() {
@@ -81,17 +94,17 @@ class DeckPage extends React.Component {
             <h4>{this.props.deck.description}</h4>
             <ul className="deck-nav">
               <li><a>Edit Deck</a></li>
-                <li>
-                  <input type="text"
-                           className="deck-search"
-                           onChange={this.handleChange}
-                           placeholder="Add Cards"
-                           onFocus={this.handleFocus}
-                           value={this.state.search} />
-                   <ul>
-                     {this.queries()}
-                   </ul>
-                  </li>
+              <li>
+                <input type="text"
+                         className="deck-search"
+                         onChange={this.handleChange}
+                         placeholder="Add Cards"
+                         onFocus={this.handleFocus}
+                         value={this.state.search} />
+                 <ul className="search-queries">
+                   {this.queries()}
+                 </ul>
+                </li>
                 <li><Link to={`/deck/${this.props.deck.id}/review`}
                 >Study</Link></li>
             </ul>
