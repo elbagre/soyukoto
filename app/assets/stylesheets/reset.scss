@@ -70,7 +70,10 @@ input[type="submit"], button {
 }
 
 input[type="submit"]:hover, button:hover {
-  background: #BD5A5A;
+  background: #E59A9A;
+  color: #fff;
+  font-weight: 500px;
+  border-color: #BD5A5A;
 }
 
 input[type="submit"], button, a {

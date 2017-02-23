@@ -94,17 +94,17 @@ class DeckPage extends React.Component {
             <h4>{this.props.deck.description}</h4>
             <ul className="deck-nav">
               <li><a>Edit Deck</a></li>
-              <li>
-                <input type="text"
-                         className="deck-search"
-                         onChange={this.handleChange}
-                         placeholder="Add Cards"
-                         onFocus={this.handleFocus}
-                         value={this.state.search} />
-                 <ul className="search-queries">
-                   {this.queries()}
-                 </ul>
-                </li>
+                <li>
+                  <input type="text"
+                           className="deck-search"
+                           onChange={this.handleChange}
+                           placeholder="Add Cards"
+                           onFocus={this.handleFocus}
+                           value={this.state.search} />
+                   <ul className="search-queries">
+                     {this.queries()}
+                   </ul>
+                  </li>
                 <li><Link to={`/deck/${this.props.deck.id}/review`}
                 >Study</Link></li>
             </ul>

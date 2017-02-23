@@ -76,7 +76,7 @@
   width: 33%;
   height: 300px;
   background: whitesmoke;
-  
+
   h3 {
     padding: 10px 20px;
     text-align: center;
@@ -112,12 +112,18 @@
       input[type="submit"] {
         width: 70px;
         margin: 10px 0 10px 60px;
+        padding: 10px 5px;
         height: auto;
+        text-align: center;
+        border: 1px solid #aaa;
+      }
+
+      input[type="submit"]:hover {
+        border-color: #BD5A5A;
       }
 
       a {
         padding: 10px;
-        margin: 10px 40px;
         text-align: center;
         color: #ccc;
       }
@@ -129,14 +135,24 @@
 
     div:last-child {
       width: 440px;
-      padding: 0;
-      margin: 0;
+      box-sizing: border-box;
+      justify-content: space-between;
+      padding: 0 20px;
+      margin: 0 auto;
     }
   }
 
   div:last-child {
     display: flex;
     width: 440px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
     justify-content: flex-end;
   }
+}
+
+.guest {
+  border: 1px solid #aaa;
+  border-radius: 5px;
 }

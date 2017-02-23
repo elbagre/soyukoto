@@ -11,6 +11,8 @@
 #
 
 class Card < ActiveRecord::Base
+  validates :item_id, :deck_id, :item_type, presence: true
+  validates :item_id, uniqueness: { scope: [:deck_id, :item_type] }
   belongs_to :deck
   belongs_to :item,
     polymorphic: true
@@ -19,6 +21,8 @@ class Card < ActiveRecord::Base
     if self.item_type == "Hiragana" || self.item_type == "Katakana"
       {
         id: self.id,
+        item_id: self.item_id,
+        item_type: self.item_type,
         item: self.item.kana,
         answer: self.item.syllable
       }

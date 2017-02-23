@@ -35,13 +35,13 @@ class NewDeckModal extends React.Component {
         opacity         : 1,
         backgroundColor : '#fff',
         position        : 'fixed',
-        top             : '0',
-        height          : '100vh',
+        top             : '15vh',
+        height          : '60vh',
+        minHeight      : '600px;',
         width           : '600px',
         margin          : '0 auto',
         bottom          : '0',
         border          : '1px solid #aaa',
-        padding         : '20px',
         zIndex          : 11
       }
     };
