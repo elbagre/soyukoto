@@ -3,6 +3,7 @@ import { receiveDeck } from './deck_actions';
 
 export const CREATE_CARD = "CREATE_CARD";
 export const DESTROY_CARD = "DESTROY_CARD";
+export const UPDATE_CARD = "UPDATE_CARD";
 
 export const createCard = (card) => (dispatch) => {
   Util.createCard(card).then((deck) => dispatch(receiveDeck(deck)));
@@ -10,4 +11,8 @@ export const createCard = (card) => (dispatch) => {
 
 export const destroyCard = (id) => (dispatch) => {
   Util.destroyCard(id).then((deck) => dispatch(receiveDeck(deck)));
+}
+
+export const updateCard = (card) => (dispatch) => {
+  Util.updateCard(card).then((deck) => dispatch(receiveDeck(deck)));
 }

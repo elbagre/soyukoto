@@ -12,3 +12,10 @@ export const destroyCard = (id) => {
     url: `api/cards/${id}`
   });
 }
+
+export const updateCard = (card) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/cards/${card.id}`
+  });
+}

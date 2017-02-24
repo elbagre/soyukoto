@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :hiraganas, only: [:show, :index]
     resources :katakanas, only: [:show, :index]
     resources :searchables, only: [:index]
-    resources :cards, only: [:create, :destroy]
+    resources :cards, only: [:create, :destroy, :update]
   end
 
   root "static_pages#root"

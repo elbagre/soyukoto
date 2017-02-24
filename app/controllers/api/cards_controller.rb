@@ -20,6 +20,18 @@ class Api::CardsController < ApplicationController
     end
   end
 
+  def update
+    card = Card.find(params[:id])
+    card.score = params[:card][:score]
+
+    if card.save
+      @deck = Deck.where(id: card.deck_id).preload(:hiragana_cards, :katakana_cards).first
+      render 'api/decks/show'
+    else
+      render json: card.errors.full_messages, status: 401
+    end
+  end
+
   def card_params
     params.require(:card).permit(:deck_id, :item_id, :item_type)
   end

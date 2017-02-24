@@ -37,9 +37,10 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: 200px;
+    width: 12.5%;
     margin-right: 0;
     z-index: 1;
+
     ul {
       display: flex;
       justify-content: center;
@@ -66,7 +67,7 @@
     left: 0;
     bottom: 0;
     background: #FEF1F1;
-
+    width: 12.5%;
 
     ul {
       margin-top: 60px;
@@ -81,8 +82,8 @@
         font-size: 12px;
         display: block;
         height: auto;
-        width: 160px;
         padding: 10px 20px;
+        box-sizing: border-box;
     }
     }
   }

@@ -84,11 +84,16 @@ class Review extends React.Component {
           <div className="review-nav">
             <button className="fail"
                     onClick={this.failCard.bind(this)}
-                    >×</button>
-            <button onClick={this.persistCard.bind(this)}>~</button>
+                    >What?</button>
+            <button className="fail"
+                    onClick={this.failCard.bind(this)}
+                    >Challenge</button>
+            <button className="fail"
+                    onClick={this.failCard.bind(this)}
+                    ></button>
             <button className="pass"
                     onClick={this.passCard.bind(this)}
-                    >○</button>
+                    ></button>
           </div>
         </div>
       );

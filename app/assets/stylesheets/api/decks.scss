@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .deck-detail {
   box-sizing: border-box;
-  padding: 60px 200px 0 200px;
+  padding: 60px 12.5% 0 12.5%;
   border-right: 1px solid #eee;
   width: 100%;
   min-height: 100vh;
@@ -125,7 +125,7 @@
 
 .decks {
   margin-top: 60px;
-  margin-left: 200px;
+  margin-left: 12.5%;
   height: 100%;
   color: #aaa;
   h1 {
@@ -136,8 +136,8 @@
 .decks-container {
   position: absolute;
   bottom: 0;
-  right: 200px;
-  left: 200px;
+  right: 12.5%;
+  left: 12.5%;
   top: 198px;
 
   .decks-nav {
