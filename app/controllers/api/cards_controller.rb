@@ -22,7 +22,7 @@ class Api::CardsController < ApplicationController
 
   def update
     card = Card.find(params[:id])
-    card.score = params[:card][:score]
+    card.grade = (card.grade * 0.15) + (params[:grade].to_f * 0.85)
 
     if card.save
       @deck = Deck.where(id: card.deck_id).preload(:hiragana_cards, :katakana_cards).first

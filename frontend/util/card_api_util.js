@@ -16,6 +16,7 @@ export const destroyCard = (id) => {
 export const updateCard = (card) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/cards/${card.id}`
+    url: `api/cards/${card.id}`,
+    data: { grade: card.grade }
   });
 }

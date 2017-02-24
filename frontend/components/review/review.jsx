@@ -15,7 +15,7 @@ class Review extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.deck !== this.props.deck) {
+    if (nextProps.deck !== this.props.deck && !this.state.cards.length ) {
       this.setState({
         cards: shuffle(nextProps.deck.cards),
       });
@@ -30,13 +30,17 @@ class Review extends React.Component {
     }
   }
 
-  failCard(e) {
-    if (this.state.cards.length > 1) {
-      this.setState({
-        cards: this.state.cards.slice(1)
-      });
-    } else {
-      hashHistory.push('/deck');
+  updateCard(grade) {
+    return (e) => {
+      if (this.state.cards.length > 1) {
+        this.state.cards[0].grade = grade;
+        this.props.updateCard(this.state.cards[0]);
+        this.setState({
+          cards: this.state.cards.slice(1)
+        });
+      } else {
+        hashHistory.push('/deck');
+      }
     }
   }
 
@@ -83,17 +87,17 @@ class Review extends React.Component {
           </div>
           <div className="review-nav">
             <button className="fail"
-                    onClick={this.failCard.bind(this)}
+                    onClick={this.updateCard(0)}
                     >What?</button>
             <button className="fail"
-                    onClick={this.failCard.bind(this)}
+                    onClick={this.updateCard(0.5)}
                     >Challenge</button>
             <button className="fail"
-                    onClick={this.failCard.bind(this)}
-                    ></button>
+                    onClick={this.updateCard(1)}
+                    >Not Hard</button>
             <button className="pass"
-                    onClick={this.passCard.bind(this)}
-                    ></button>
+                    onClick={this.updateCard(2)}
+                    >Easy</button>
           </div>
         </div>
       );

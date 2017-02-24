@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20170223233409) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "deck_id",                null: false
-    t.integer  "item_id",                null: false
-    t.string   "item_type",              null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "grade",      default: 0
+    t.integer  "deck_id",                  null: false
+    t.integer  "item_id",                  null: false
+    t.string   "item_type",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.float    "grade",      default: 0.0
   end
 
   create_table "decks", force: :cascade do |t|
