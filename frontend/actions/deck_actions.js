@@ -1,4 +1,5 @@
 import * as Util from '../util/deck_api_util';
+import { hashHistory } from 'react-router';
 
 export const REQUEST_ALL_DECKS = "REQUEST_ALL_DECKS";
 export const RECEIVE_ALL_DECKS = "RECEIVE_ALL_DECKS";
@@ -36,7 +37,8 @@ export const createDeck = (deck) => (dispatch) => {
 
 export const destroyDeck = (id) => (dispatch) => {
   Util.destroyDeck(id)
-      .then( () => dispatch(requestAllDecks()));
+      .then( (decks) => dispatch(receiveAllDecks(decks)))
+      .then( () => hashHistory.push('/deck'));
 }
 
 export const resetDeck = (id) => (dispatch) => {

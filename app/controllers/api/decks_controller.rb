@@ -24,6 +24,8 @@ class Api::DecksController < ApplicationController
   def destroy
     @deck = Deck.find(params[:id])
     if @deck.destroy
+      @decks = Deck.all
+                   .preload(:associated_cards, :hiragana_cards, :katakana_cards)
       render :index
     else
       render json: @deck.errors.full_messages, status: 422

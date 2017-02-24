@@ -9,11 +9,12 @@
   min-height: 100vh;
   div {
     h2 {
+      font-size: 56px;
       padding: 20px 20px 10px 20px;
     }
 
     h4 {
-      padding: 10px 20px;
+      padding: 20px 20px;
       min-height: 40px;
       box-sizing: border-box;
     }
@@ -27,54 +28,67 @@
   }
 }
 
-.deck-nav {
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  position: relative;
-  max-height: 62px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  background: #eee;
-  padding: 10px 20px;
+.deck-header {
   display: flex;
+  width: 100%;
+  background: #fff;
   justify-content: space-between;
-  align-items: center;
 
-  li > a {
-    display: block;
-    padding: 10px 20px;
-    cursor: pointer;
+  .deck-nav {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+
+    li > a {
+      display: block;
+      text-align: center;
+      padding: 10px 5px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    li:last-child > a {
+      border-bottom: 0;
+    }
   }
+}
 
-  li > .deck-search {
-    display: block;
-    width: 420px;
+.deck-search {
+  width: 100%;
+  position: relative;
+  background: salmon;
+
+  input[type="text"] {
     border: 0;
-    background: #eee;
-    padding: 10px 5px;
-    border-radius: 15px;
+    border-bottom: 10px solid #eee;
+    border-top: 10px solid #eee;
+    padding: 10px 0;
+    background: whitesmoke;
+    width: 100%;
     text-align: center;
   }
 
-  li > ul {
-    position: absolute;
-    background: salmon;
-    top: 62px;
-    width: 33%;
+  input[type="text"]:focus {
+    border: 0;
+    border-top: 10px solid #ccc;
+    border-bottom: 10px solid #ccc;
+  }
+
+  ul {
+    left: 20%;
+    right: 20%;
     min-width: 420px;
+    width: 60%;
+    position: absolute;
 
     li {
       width: 100%;
     }
   }
-
-  li > a:hover {
-    background: #F0ADAD;
-    color: #fff;
-  }
 }
 
 .deck-cards {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   li {
@@ -317,7 +331,7 @@
     p:first-child {
       background: #fff;
       padding: 10px 5px;
-       text-align: left;
+       text-align: center;
       font-weight: bold;
       width: 20%;
       color: #000;

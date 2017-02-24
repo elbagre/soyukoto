@@ -37,7 +37,7 @@ class NewDeckModal extends React.Component {
         position        : 'fixed',
         top             : '15vh',
         height          : '60vh',
-        minHeight      : '600px;',
+        minHeight      : '600px',
         width           : '600px',
         margin          : '0 auto',
         bottom          : '0',

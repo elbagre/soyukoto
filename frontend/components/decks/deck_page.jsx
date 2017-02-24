@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
 
 class DeckPage extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class DeckPage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.destroyCard = this.destroyCard.bind(this);
+    this.destroyDeck = this.destroyDeck.bind(this);
     this.queries = this.queries.bind(this);
     this.createCard = this.createCard.bind(this);
     this.reset = this.reset.bind(this);
@@ -58,6 +59,10 @@ class DeckPage extends React.Component {
     };
   }
 
+  destroyDeck() {
+    this.props.destroyDeck(this.props.deck.id);
+  }
+
   queries() {
     if (this.props.queryResults.length) {
       return this.props.queryResults.map( (query, idx) => {
@@ -94,31 +99,33 @@ class DeckPage extends React.Component {
     if (this.props.deck) {
       return(
         <div className="deck-detail">
-          <div>
-            <h2>{this.props.deck.name}</h2>
-            <h4>{this.props.deck.description}</h4>
+          <div className="deck-header">
+            <div>
+              <h2>{this.props.deck.name}</h2>
+              <h4>{this.props.deck.description}</h4>
+            </div>
             <ul className="deck-nav">
-              <li><a>Edit</a></li>
+              <li><Link to={`/deck/${this.props.deck.id}/edit`}>Edit</Link></li>
               <li><a onClick={this.reset}>Reset</a></li>
-              <li>
-                <input type="text"
-                         className="deck-search"
-                         onChange={this.handleChange}
-                         placeholder="Add Cards"
-                         onFocus={this.handleFocus}
-                         value={this.state.search} />
-                 <ul className="search-queries">
-                   {this.queries()}
-                 </ul>
-                </li>
-                <li><Link to={`/deck/${this.props.deck.id}/review`}
+              <li><Link to={`/deck/${this.props.deck.id}/review`}
                 >Study</Link></li>
-              <li><a>Delete</a></li>
-            </ul>
-            <ul className="deck-cards">
-              {this.cards()}
+              <li><a onClick={this.destroyDeck}>Delete</a></li>
             </ul>
           </div>
+          <div className="deck-search">
+            <input type="text"
+              className="deck-search"
+              onChange={this.handleChange}
+              placeholder="Add Cards"
+              onFocus={this.handleFocus}
+              value={this.state.search} />
+            <ul className="search-queries">
+              {this.queries()}
+            </ul>
+          </div>
+          <ul className="deck-cards">
+            {this.cards()}
+          </ul>
         </div>
       );
     } else {

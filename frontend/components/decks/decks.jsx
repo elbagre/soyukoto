@@ -13,6 +13,7 @@ class Decks extends React.Component {
 
     this.state = {
       modalOpen: false,
+      loading: true
     }
   }
 
@@ -72,12 +73,12 @@ class Decks extends React.Component {
           </ul>
         </div>
         <NewDeckModal modalOpen={this.state.modalOpen}
-                      requestMatches={this.props.requestMatches}
-                      clearMatches={this.props.clearMatches}
-                      queryResults={this.props.queryResults}
-                      createDeck={this.props.createDeck}
-                      currentUser={this.props.currentUser}
-                      closeModal={this.closeModal} />
+          requestMatches={this.props.requestMatches}
+          clearMatches={this.props.clearMatches}
+          queryResults={this.props.queryResults}
+          createDeck={this.props.createDeck}
+          currentUser={this.props.currentUser}
+          closeModal={this.closeModal} />
       </div>
     )
   }
