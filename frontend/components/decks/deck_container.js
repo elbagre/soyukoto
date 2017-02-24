@@ -11,6 +11,8 @@ const mapStateToProps = ({ decks, query }) => ({
 
 const mapDispatchToProps = (dispatch, { location }) => ({
   createCard: (card) => dispatch(createCard(card)),
+  resetDeck: (id) => dispatch(Deck.resetDeck(id)),
+  destroyDeck: (id) => dispatch(Deck.destroyDeck(id)),
   receiveDeck: (deck) => dispatch(Deck.receiveDeck(deck)),
   destroyCard: (id) => dispatch(destroyCard(id)),
   requestDeck: (id) => dispatch(Deck.requestDeck(id)),

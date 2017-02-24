@@ -10,6 +10,7 @@ class DeckPage extends React.Component {
     this.destroyCard = this.destroyCard.bind(this);
     this.queries = this.queries.bind(this);
     this.createCard = this.createCard.bind(this);
+    this.reset = this.reset.bind(this);
     this.state = {
       search: "",
       focused: "hidden"
@@ -35,6 +36,10 @@ class DeckPage extends React.Component {
     this.setState({
       focused: "search-queries"
     })
+  }
+
+  reset() {
+    this.props.resetDeck(this.props.deck.id);
   }
 
   createCard(card) {
@@ -93,20 +98,22 @@ class DeckPage extends React.Component {
             <h2>{this.props.deck.name}</h2>
             <h4>{this.props.deck.description}</h4>
             <ul className="deck-nav">
-              <li><a>Edit Deck</a></li>
-                <li>
-                  <input type="text"
-                           className="deck-search"
-                           onChange={this.handleChange}
-                           placeholder="Add Cards"
-                           onFocus={this.handleFocus}
-                           value={this.state.search} />
-                   <ul className="search-queries">
-                     {this.queries()}
-                   </ul>
-                  </li>
+              <li><a>Edit</a></li>
+              <li><a onClick={this.reset}>Reset</a></li>
+              <li>
+                <input type="text"
+                         className="deck-search"
+                         onChange={this.handleChange}
+                         placeholder="Add Cards"
+                         onFocus={this.handleFocus}
+                         value={this.state.search} />
+                 <ul className="search-queries">
+                   {this.queries()}
+                 </ul>
+                </li>
                 <li><Link to={`/deck/${this.props.deck.id}/review`}
                 >Study</Link></li>
+              <li><a>Delete</a></li>
             </ul>
             <ul className="deck-cards">
               {this.cards()}

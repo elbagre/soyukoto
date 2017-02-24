@@ -22,6 +22,7 @@ class Card < ActiveRecord::Base
     if self.item_type == "Hiragana" || self.item_type == "Katakana"
       {
         id: self.id,
+        grade: self.grade,
         item_id: self.item_id,
         item_type: self.item_type,
         item: self.item.kana,

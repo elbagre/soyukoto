@@ -16,9 +16,18 @@ class Review extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.deck !== this.props.deck && !this.state.cards.length ) {
-      this.setState({
-        cards: shuffle(nextProps.deck.cards),
+      const cards = nextProps.deck.cards.filter( (card) => {
+        if (card.grade < 1.6) {
+          return card;
+        }
       });
+      this.setState({ cards });
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.cards.length < 1) {
+      hashHistory.push('/deck');
     }
   }
 
@@ -32,15 +41,11 @@ class Review extends React.Component {
 
   updateCard(grade) {
     return (e) => {
-      if (this.state.cards.length > 1) {
-        this.state.cards[0].grade = grade;
-        this.props.updateCard(this.state.cards[0]);
-        this.setState({
-          cards: this.state.cards.slice(1)
-        });
-      } else {
-        hashHistory.push('/deck');
-      }
+      this.state.cards[0].grade = grade;
+      this.props.updateCard(this.state.cards[0]);
+      this.setState({
+        cards: this.state.cards.slice(1)
+      });
     }
   }
 
@@ -87,7 +92,7 @@ class Review extends React.Component {
           </div>
           <div className="review-nav">
             <button className="fail"
-                    onClick={this.updateCard(0)}
+                    onClick={this.updateCard(0.1)}
                     >What?</button>
             <button className="fail"
                     onClick={this.updateCard(0.5)}

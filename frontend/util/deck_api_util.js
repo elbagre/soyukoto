@@ -15,6 +15,13 @@ export const destroyDeck = (id) => {
   })
 }
 
+export const resetDeck = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/decks/${id}/reset`
+  })
+}
+
 export const fetchAllDecks = () => {
   return $.ajax({
     method: 'GET',

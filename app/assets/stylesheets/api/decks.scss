@@ -30,12 +30,15 @@
 .deck-nav {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
-  margin-bottom: 10px;
+  position: relative;
+  max-height: 62px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
   background: #eee;
-  height: 40px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 
   li > a {
     display: block;
@@ -46,15 +49,17 @@
   li > .deck-search {
     display: block;
     width: 420px;
-    background: #fff;
-    border-radius: 10px;
+    border: 0;
+    background: #eee;
+    padding: 10px 5px;
+    border-radius: 15px;
     text-align: center;
   }
 
   li > ul {
-    position: relative;
+    position: absolute;
     background: salmon;
-    bottom: -8px;
+    top: 62px;
     width: 33%;
     min-width: 420px;
 

@@ -6,6 +6,7 @@ export const REQUEST_DECK = "REQUEST_DECK";
 export const RECEIVE_DECK = "RECEIVE_DECK";
 export const CREATE_DECK = "CREATE_DECK";
 export const DESTROY_DECK = "DESTROY_DECK";
+export const RESET_DECK = "RESET_DECK";
 
 export  const requestAllDecks = () => (dispatch) => {
   Util.fetchAllDecks()
@@ -36,4 +37,8 @@ export const createDeck = (deck) => (dispatch) => {
 export const destroyDeck = (id) => (dispatch) => {
   Util.destroyDeck(id)
       .then( () => dispatch(requestAllDecks()));
+}
+
+export const resetDeck = (id) => (dispatch) => {
+  Util.resetDeck(id).then( (deck) => dispatch(receiveDeck(deck)));
 }

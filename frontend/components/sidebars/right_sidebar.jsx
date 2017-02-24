@@ -44,7 +44,7 @@ class RightSidebar extends React.Component {
       );
     } else {
       return(
-        <div></div>
+        <div className="sidebar"></div>
       );
     }
   }
