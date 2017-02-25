@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223233409) do
+ActiveRecord::Schema.define(version: 20170225184816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170223233409) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id",     null: false
   end
 
   create_table "hiraganas", force: :cascade do |t|
@@ -55,6 +56,25 @@ ActiveRecord::Schema.define(version: 20170223233409) do
   add_index "katakanas", ["kana", "group"], name: "index_katakanas_on_kana_and_group", using: :btree
   add_index "katakanas", ["kana", "syllable"], name: "index_katakanas_on_kana_and_syllable", using: :btree
   add_index "katakanas", ["kana"], name: "index_katakanas_on_kana", using: :btree
+
+  create_table "public_cards", force: :cascade do |t|
+    t.integer  "public_deck_id", null: false
+    t.integer  "searchable_id",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "public_cards", ["public_deck_id", "searchable_id"], name: "index_public_cards_on_public_deck_id_and_searchable_id", unique: true, using: :btree
+
+  create_table "public_decks", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.string   "name",        null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "public_decks", ["user_id", "name"], name: "index_public_decks_on_user_id_and_name", unique: true, using: :btree
 
   create_table "searchables", force: :cascade do |t|
     t.string   "translation",     default: ""

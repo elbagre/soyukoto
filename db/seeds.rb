@@ -1,6 +1,6 @@
 User.destroy_all
 
-User.create(email: "guest@guest.com", username: "guest", password: "guests")
+guest = User.create(email: "guest@guest.com", username: "guest", password: "guests")
 User.create(email: "peter.michael.mckinley@gmail.com", username: "elbagre", password: "password")
 
 Hiragana.destroy_all
@@ -200,56 +200,56 @@ end
 Deck.destroy_all
 Card.destroy_all
 
-first_kana = Deck.create(name: "First Kana", description: "First grouping of hiragana")
+first_kana = Deck.create(name: "First Kana", description: "First grouping of hiragana", user_id: guest.id)
 Card.create(deck_id: first_kana.id, item_id: a.id, item_type: "Hiragana")
 Card.create(deck_id: first_kana.id, item_id: i.id, item_type: "Hiragana")
 Card.create(deck_id: first_kana.id, item_id: u.id, item_type: "Hiragana")
 Card.create(deck_id: first_kana.id, item_id: e.id, item_type: "Hiragana")
 Card.create(deck_id: first_kana.id, item_id: o.id, item_type: "Hiragana")
 
-sec_kana = Deck.create(name: "2nd Kana", description: "K group hiragana")
+sec_kana = Deck.create(name: "2nd Kana", description: "K group hiragana", user_id: guest.id)
 Card.create(deck_id: sec_kana.id, item_id: ka.id, item_type: "Hiragana")
 Card.create(deck_id: sec_kana.id, item_id: ki.id, item_type: "Hiragana")
 Card.create(deck_id: sec_kana.id, item_id: ku.id, item_type: "Hiragana")
 Card.create(deck_id: sec_kana.id, item_id: ke.id, item_type: "Hiragana")
 Card.create(deck_id: sec_kana.id, item_id: ko.id, item_type: "Hiragana")
 
-thr_kana = Deck.create(name: "3rd Kana", description: "S group hiragana")
+thr_kana = Deck.create(name: "3rd Kana", description: "S group hiragana", user_id: guest.id)
 Card.create(deck_id: thr_kana.id, item_id: sa.id, item_type: "Hiragana")
 Card.create(deck_id: thr_kana.id, item_id: shi.id, item_type: "Hiragana")
 Card.create(deck_id: thr_kana.id, item_id: su.id, item_type: "Hiragana")
 Card.create(deck_id: thr_kana.id, item_id: se.id, item_type: "Hiragana")
 Card.create(deck_id: thr_kana.id, item_id: so.id, item_type: "Hiragana")
 
-four_kana = Deck.create(name: "4th Kana", description: "T group Hiragana")
+four_kana = Deck.create(name: "4th Kana", description: "T group Hiragana", user_id: guest.id)
 Card.create(deck_id: four_kana.id, item_id: ta.id, item_type: "Hiragana")
 Card.create(deck_id: four_kana.id, item_id: chi.id, item_type: "Hiragana")
 Card.create(deck_id: four_kana.id, item_id: tsu.id, item_type: "Hiragana")
 Card.create(deck_id: four_kana.id, item_id: te.id, item_type: "Hiragana")
 Card.create(deck_id: four_kana.id, item_id: to.id, item_type: "Hiragana")
 
-five = Deck.create(name: "5th Kana", description: "N group Hiragana")
+five = Deck.create(name: "5th Kana", description: "N group Hiragana", user_id: guest.id)
 Card.create(deck_id: five.id, item_id: na.id, item_type: "Hiragana")
 Card.create(deck_id: five.id, item_id: ni.id, item_type: "Hiragana")
 Card.create(deck_id: five.id, item_id: nu.id, item_type: "Hiragana")
 Card.create(deck_id: five.id, item_id: ne.id, item_type: "Hiragana")
 Card.create(deck_id: five.id, item_id: no.id, item_type: "Hiragana")
 
-six = Deck.create(name: "6th Kana", description: "H group Hiragana")
+six = Deck.create(name: "6th Kana", description: "H group Hiragana", user_id: guest.id)
 Card.create(deck_id: six.id, item_id: ha.id, item_type: "Hiragana")
 Card.create(deck_id: six.id, item_id: hi.id, item_type: "Hiragana")
 Card.create(deck_id: six.id, item_id: hu.id, item_type: "Hiragana")
 Card.create(deck_id: six.id, item_id: he.id, item_type: "Hiragana")
 Card.create(deck_id: six.id, item_id: ho.id, item_type: "Hiragana")
 
-seven = Deck.create(name: "7th Kana", description: "M group Hiragana")
+seven = Deck.create(name: "7th Kana", description: "M group Hiragana", user_id: guest.id)
 Card.create(deck_id: seven.id, item_id: ma.id, item_type: "Hiragana")
 Card.create(deck_id: seven.id, item_id: mi.id, item_type: "Hiragana")
 Card.create(deck_id: seven.id, item_id: mu.id, item_type: "Hiragana")
 Card.create(deck_id: seven.id, item_id: me.id, item_type: "Hiragana")
 Card.create(deck_id: seven.id, item_id: mo.id, item_type: "Hiragana")
 
-eight = Deck.create(name: "8th Kana", description: "R group Hiragana")
+eight = Deck.create(name: "8th Kana", description: "R group Hiragana", user_id: guest.id)
 Card.create(deck_id: eight.id, item_id: ra.id, item_type: "Hiragana")
 Card.create(deck_id: eight.id, item_id: ri.id, item_type: "Hiragana")
 Card.create(deck_id: eight.id, item_id: ru.id, item_type: "Hiragana")

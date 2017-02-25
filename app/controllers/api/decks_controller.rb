@@ -36,7 +36,7 @@ class Api::DecksController < ApplicationController
   end
 
   def index
-    @decks = Deck.all
+    @decks = Deck.where(user_id: current_user.id)
                  .preload(:associated_cards, :hiragana_cards, :katakana_cards)
     render :index
   end

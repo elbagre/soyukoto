@@ -12,6 +12,9 @@
 #
 
 class Searchable < ActiveRecord::Base
+  validates :translation, :transliteration, :item_id, :item_type, presence: true
+  validates :item_id uniqueness: { scope: :item_type }
+  
   belongs_to :item,
     polymorphic: true
 end
