@@ -10,7 +10,7 @@ const PublicDeckReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case Action.RECEIVE_PUBLIC_DECKS:
-      return merge({}, state, { index: action.public_decks });
+      return { index: action.decks, detail: state.detail };
     case Action.RECEIVE_PUBLIC_DECK:
       return merge({}, state, { index: action.public_deck });
     default:

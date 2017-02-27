@@ -11,7 +11,7 @@ class LeftSidebar extends React.Component {
       <div className="left-sidebar">
         <ul>
           <Link to="/deck">My Decks</Link>
-          <Link to="/deck">Public Decks</Link>
+          <Link to="/public">Public Decks</Link>
           <Link to="/deck">Lessons</Link>
         </ul>
       </div>

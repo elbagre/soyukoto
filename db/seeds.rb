@@ -1,7 +1,7 @@
 User.destroy_all
 
 guest = User.create(email: "guest@guest.com", username: "guest", password: "guests")
-User.create(email: "peter.michael.mckinley@gmail.com", username: "elbagre", password: "password")
+el_bagre = User.create(email: "peter.michael.mckinley@gmail.com", username: "elbagre", password: "password")
 
 Hiragana.destroy_all
 
@@ -255,3 +255,17 @@ Card.create(deck_id: eight.id, item_id: ri.id, item_type: "Hiragana")
 Card.create(deck_id: eight.id, item_id: ru.id, item_type: "Hiragana")
 Card.create(deck_id: eight.id, item_id: re.id, item_type: "Hiragana")
 Card.create(deck_id: eight.id, item_id: ro.id, item_type: "Hiragana")
+
+PublicDeck.destroy_all
+PublicCard.destroy_all
+
+pb_one = PublicDeck.create(name: "Hiragana", description: "All regular Hiragana", user_id: el_bagre.id)
+pb_two = PublicDeck.create(name: "All Hiragana", description: "All Hiragana", user_id: el_bagre.id)
+pb_three = PublicDeck.create(name: "All Katakana", description: "All Katakana", user_id: el_bagre.id)
+pb_four = PublicDeck.create(name: "Katakana", description: "All normal Katakana", user_id: el_bagre.id)
+pb_five = PublicDeck.create(name: "Greetings pt. 1", description: "Common greetings", user_id: el_bagre.id)
+pb_six = PublicDeck.create(name: "Greetings pt. 2", description: "Common greetings", user_id: el_bagre.id)
+pb_seven = PublicDeck.create(name: "Numbers (0-10)", description: "Easy numbers", user_id: el_bagre.id)
+pb_eight = PublicDeck.create(name: "Introduction", description: "Common phrases", user_id: el_bagre.id)
+pb_nine = PublicDeck.create(name: "Days", description: "Days of the week", user_id: el_bagre.id)
+pb_ten = PublicDeck.create(name: "Useful Phrases", description: "Useful phrases for the casual tourist", user_id: el_bagre.id)

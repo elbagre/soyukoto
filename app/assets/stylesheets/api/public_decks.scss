@@ -1,3 +1,89 @@
 .public-decks {
   margin: 61px 12.5% 0 12.5%;
+
+  h1 {
+    padding: 20px;
+    border-bottom: 5px solid whitesmoke;
+  }
+
+  h2 {
+    padding: 20px;
+  }
+
+  .public-decks-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    li {
+      display: flex;
+      width: 100%;
+      a {
+        display: flex;
+        width: 100%;
+        align-items: baseline;
+        cursor: pointer;
+        p {
+          padding: 5px 20px;
+          width: 15%;
+          cursor: inherit;
+          background: inherit;
+        }
+
+        p:first-child {
+          width: 30%;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        p:nth-child(2) {
+          width: 55%;
+          font-size: 12px;
+          color: #404040;
+        }
+      }
+
+      a:hover {
+        background: 	#fbc1c1;
+      }
+    }
+
+    li:nth-child(2n) {
+      background: 		#fef8f8;
+    }
+
+    li:nth-child(2n + 1) {
+      background: #fff;
+    }
+
+    li:last-child {
+      border-bottom: 20px solid #eee;
+    }
+  }
+}
+
+.public-deck-nav {
+  display: flex;
+  width: 100%;
+  background: #eee;
+
+  li {
+    display: block;
+    width: 15%;
+    a, p {
+      display: block;
+      padding: 5px 20px;
+      width: 100%;
+      color: #aaa;
+      cursor: default;
+    }
+  }
+
+  li:first-child {
+    width: 30%;
+  }
+
+  li:nth-child(2) {
+    width: 55%;
+  }
 }
