@@ -1,5 +1,6 @@
 .public-decks {
-  margin: 61px 12.5% 0 12.5%;
+  @extend %content;
+  // margin: 61px 12.5% 0 12.5%;
 
   h1 {
     padding: 20px;

@@ -9,6 +9,7 @@ import SessionPageContainer from './session/session_page_container';
 import DecksContainer from './decks/decks_container';
 import DeckContainer from './decks/deck_container';
 import ReviewContainer from './review/review_container';
+import PublicDeckContainer from './public_decks/public_deck_container';
 import PublicDecksContainer from './public_decks/public_decks_container';
 
 const Root = ({ store }) => {
@@ -37,6 +38,7 @@ const Root = ({ store }) => {
           <Route path="/deck/:id" component={DeckContainer} />
           <Route path="/deck/:id/review" component={ReviewContainer} />
           <Route path="/public" component={PublicDecksContainer} />
+          <Route path="/public/:id" component={PublicDeckContainer} />
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>
           <Route path="/login" component={SessionPageContainer} />

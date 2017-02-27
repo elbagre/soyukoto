@@ -7,9 +7,10 @@ class RightSidebar extends React.Component {
     this.state = {
       className: "hidden",
       routes: {
-        "hiragana": ["ひらがな", "Hiragana"],
-        "katakana": ["カタカナ", "Katakana"],
-        "deck": ["勉強", "Study"]
+        'hiragana': ['ひらがな', 'Hiragana'],
+        'katakana': ['カタカナ', 'Katakana'],
+        'deck': ['勉強', 'Study'],
+        'public': ['探索', 'Explore']
       }
     }
   }
