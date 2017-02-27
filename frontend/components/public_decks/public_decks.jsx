@@ -6,6 +6,12 @@ class PublicDecks extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    if (!this.props.publicDecks.length) {
+      this.props.requestPublicDecks();
+    }
+  }
+
   render() {
     return(
       <div className="public-decks">

@@ -11,7 +11,8 @@ const RootReducer = combineReducers({
   session: SessionReducer,
   decks: DeckReducer,
   kana: KanaReducer,
-  query: QueryReducer
+  query: QueryReducer,
+  publicDeck: PublicDeckReducer,
 });
 
 export default RootReducer;

@@ -4,12 +4,12 @@ export const RECEIVE_PUBLIC_DECKS = "RECEIVE_PUBLIC_DECKS";
 export const RECEIVE_PUBLIC_DECK = "RECEIVE_PUBLIC_DECK";
 
 export const requestPublicDecks = () => (dispatch) => {
-  Util.requestPublicDecks()
+  Util.fetchPublicDecks()
       .then( (decks) => dispatch(receivePublicDecks(decks)));
 };
 
 export const requestPublicDeck = (id) => (dispatch) => {
-  Util.requestPublicDeck(id)
+  Util.fetchPublicDeck(id)
       .then( (deck) => dispatch(receivePublicDeck(deck)));
 };
 
