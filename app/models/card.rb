@@ -8,7 +8,7 @@
 #  item_type  :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  grade      :integer          default(0)
+#  grade      :float            default(0.0)
 #
 
 class Card < ActiveRecord::Base

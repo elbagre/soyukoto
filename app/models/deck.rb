@@ -7,10 +7,11 @@
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 
 class Deck < ActiveRecord::Base
-  validates :name, presence: true, length: { minimum: 1, maximum: 15 }, uniqueness: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 15 }
 
   has_many :associated_cards,
     foreign_key: :deck_id,
