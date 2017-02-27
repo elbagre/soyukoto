@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :katakanas, only: [:show, :index]
     resources :searchables, only: [:index]
     resources :cards, only: [:create, :destroy, :update]
+    resources :public_decks, only: [:create, :destroy, :index, :show]
   end
 
   root "static_pages#root"
