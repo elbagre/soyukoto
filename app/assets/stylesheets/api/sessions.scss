@@ -21,7 +21,7 @@
     margin: 10px 0;
     padding: 10px 20px;
     border: 1px solid #aaa;
-    border-left: 10px solid #E59A9A;
+    border-left: 10px solid $sakura;
     color: #000;
   }
 }
@@ -119,7 +119,7 @@
       }
 
       input[type="submit"]:hover {
-        border-color: #BD5A5A;
+        border-color: $dark-sakura;
       }
 
       a {

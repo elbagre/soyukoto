@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Kouzan';
+  src: local("KouzanBrushFontGyousyo"),
+  url('kouzangyousho.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Gen Ei Gothic';
+  src: local("GenEiGothicN-Bold") format("otf"),
+  url("GenEiGothicN-Bold.otf");
+  font-weight: normal;
+}
+
+$sakura: #E59A9A;
+$dark-sakura: #BD5A5A;
+$light-sakura: #fef8f8;
+$pink-sakura: #FEF1F1;
+
+%content {
+  padding: 61px 12.5% 0 12.5%;
+}
+
+%detail-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  h2 {
+    font-size: 56px;
+    padding: 20px 20px 10px 20px;
+  }
+
+  h4 {
+    padding: 20px;
+    min-height: 40px;
+    box-sizing: border-box;
+  }
+}

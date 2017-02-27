@@ -6,7 +6,10 @@ class PublicDeck extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestPublicDeck(this.props.location);
+    this.props.requestPublicDeck(parseInt(this.props.routeParams.id));
+  }
+
+  componentWillUnmount() {
   }
 
   render() {
@@ -17,6 +20,7 @@ class PublicDeck extends React.Component {
             <h2>{this.props.publicDeck.name}</h2>
             <h4>{this.props.publicDeck.description}</h4>
           </div>
+          <button>Get this Deck</button>
         </div>
       </div>
     );

@@ -2,30 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .deck-detail {
-  box-sizing: border-box;
-  padding: 60px 12.5% 0 12.5%;
-  border-right: 1px solid #eee;
-  width: 100%;
-  min-height: 100vh;
-  div {
-    h2 {
-      font-size: 56px;
-      padding: 20px 20px 10px 20px;
-    }
-
-    h4 {
-      padding: 20px 20px;
-      min-height: 40px;
-      box-sizing: border-box;
-    }
-  }
-}
-.deck-detail ul {
-  display: flex;
-  position: relative;
-  li > a {
-    width: auto;
-  }
+  @extend %content;
+  @extend %detail-page;
 }
 
 .deck-header {
@@ -33,6 +11,7 @@
   width: 100%;
   background: #fff;
   justify-content: space-between;
+  align-items: baseline;
 
   .deck-nav {
     display: flex;
@@ -94,8 +73,7 @@
   li {
     cursor: default;
     box-sizing: border-box;
-    margin: 0 2%;
-    margin-bottom: 10px;
+    margin: 0 2% 10px 2%;
     min-width: 46%;
     min-height: 50px;
     display: flex;
@@ -125,7 +103,7 @@
     }
 
     p:nth-child(2) {
-      border-bottom: 1px solid #BD5A5A;
+      border-bottom: 1px solid $dark-sakura;
       background: #fff;
       font-size: 36px;
       font-family: "Kouzan";
@@ -143,8 +121,7 @@
 }
 
 .decks {
-  margin-top: 60px;
-  margin-left: 12.5%;
+  @extend %content;
   height: 100%;
   color: #aaa;
   h1 {
@@ -214,7 +191,7 @@
     color: #000;
     p {
       background: #F0ADAD;
-      border: 1px solid #BD5A5A;
+      border: 1px solid $dark-sakura;
       color: #fff;
     }
   }
@@ -296,7 +273,7 @@
 
   input[type="submit"]:hover {
     background: #F0ADAD;
-    border: 1px solid #BD5A5A;
+    border: 1px solid $dark-sakura;
     color: #fff;
   }
 }

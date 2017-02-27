@@ -1,12 +1,12 @@
 .review {
-  padding: 60px 12.5% 0 12.5%;
+  @extend %content;
   box-sizing: border-box;
   background: whitesmoke;
   min-height: 100vh;
   .review-item {
     display: flex;
     width: 50%;
-    margin: 40px auto 0 auto;
+    margin: 20px auto 0 auto;
     font-size: 150px;
     font-weight: bold;
     height: 50vh;

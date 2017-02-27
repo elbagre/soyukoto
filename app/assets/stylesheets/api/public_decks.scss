@@ -1,6 +1,5 @@
 .public-decks {
   @extend %content;
-  // margin: 61px 12.5% 0 12.5%;
 
   h1 {
     padding: 20px;
@@ -50,7 +49,7 @@
     }
 
     li:nth-child(2n) {
-      background: 		#fef8f8;
+      background: $light-sakura;
     }
 
     li:nth-child(2n + 1) {
@@ -86,5 +85,28 @@
 
   li:nth-child(2) {
     width: 55%;
+  }
+}
+
+.public-deck-detail {
+  background: whitesmoke;
+  @extend %content;
+  @extend %detail-page;
+
+  button {
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 2px #ccc;
+    color: $sakura;
+    font-weight: bold;
+    border: 5px solid $sakura;
+    width: auto;
+    margin: 0 20px;
+  }
+
+  button:hover {
+    background: $sakura;
+    color: #fff;
   }
 }

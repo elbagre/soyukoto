@@ -9,8 +9,9 @@ const mapStateToProps = ({ publicDeck }) => ({
 
 const mapDispatchToProps = (dispatch, { location }) => ({
   requestPublicDeck: (id) => dispatch(Action.requestPublicDeck(id)),
+  receivePublicDeck: (deck) => dispatch(Action.receivePublicDeck(deck)),
   createDeck: (deck) => dispatch(Deck.createDeck(deck)),
-  location: parseInt(location.pathname.slice(8))
+  location: parseInt(location.pathname.slice(7))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PublicDeck);

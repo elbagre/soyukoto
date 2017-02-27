@@ -7,16 +7,14 @@ class PublicDecks extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.publicDecks.length) {
-      this.props.requestPublicDecks();
-    }
+    this.props.requestPublicDecks();
   }
 
   componentDidUpdate() {
   }
 
   decks() {
-    if (this.props.publicDecks.length) {
+    if  (this.props.publicDecks) {
       return this.props.publicDecks.map( (deck, idx) => {
         return(
           <li key={idx}>
