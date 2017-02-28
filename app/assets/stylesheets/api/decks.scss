@@ -11,7 +11,6 @@
   width: 100%;
   background: #fff;
   justify-content: space-between;
-  align-items: baseline;
 
   .deck-nav {
     display: flex;
@@ -123,9 +122,10 @@
 .decks {
   @extend %content;
   height: 100%;
-  color: #aaa;
   h1 {
     padding: 20px;
+    color: #aaa;
+    font-weight: bold;
   }
 }
 

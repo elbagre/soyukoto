@@ -1,6 +1,7 @@
 class Api::DecksController < ApplicationController
   def create
     @deck = Deck.new(deck_params)
+    @deck.user_id = current_user.id
 
 
     if @deck.save

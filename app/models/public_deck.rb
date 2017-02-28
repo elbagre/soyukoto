@@ -13,7 +13,15 @@
 class PublicDeck < ActiveRecord::Base
   validates :user_id, :name, :description, presence: true
 
-  has_many :cards,
+  has_many :public_cards,
     class_name: "PublicCard",
     foreign_key: :public_deck_id
+
+  has_many :searchables,
+    through: :public_cards,
+    source: :searchable
+
+  def cards
+    self.searchables.to_a.map { |item| item.to_json }
+  end
 end

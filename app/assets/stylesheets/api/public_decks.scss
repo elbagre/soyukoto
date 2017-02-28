@@ -3,6 +3,8 @@
 
   h1 {
     padding: 20px;
+    font-weight: bold;
+    color: #aaa;
     border-bottom: 5px solid whitesmoke;
   }
 
@@ -11,13 +13,9 @@
   }
 
   .public-decks-list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    @extend %full-width-list;
 
     li {
-      display: flex;
-      width: 100%;
       a {
         display: flex;
         width: 100%;
@@ -46,18 +44,6 @@
       a:hover {
         background: 	#fbc1c1;
       }
-    }
-
-    li:nth-child(2n) {
-      background: $light-sakura;
-    }
-
-    li:nth-child(2n + 1) {
-      background: #fff;
-    }
-
-    li:last-child {
-      border-bottom: 20px solid #eee;
     }
   }
 }
@@ -102,11 +88,32 @@
     font-weight: bold;
     border: 5px solid $sakura;
     width: auto;
-    margin: 0 20px;
+    margin: 40px 20px;
   }
 
   button:hover {
     background: $sakura;
     color: #fff;
+  }
+
+  ul {
+    @extend %full-width-list;
+
+    p, a {
+      width: 33%;
+      padding: 10px 20px;
+      font-weight: 500;
+      cursor: default;
+    }
+
+    li:first-child {
+      background: #eee;
+
+      p, a {
+        color: #aaa;
+        font-weight: 600;
+      }
+    }
+
   }
 }

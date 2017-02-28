@@ -17,4 +17,16 @@ class Searchable < ActiveRecord::Base
 
   belongs_to :item,
     polymorphic: true
+
+  def to_json
+    if self.item_type == "Hiragana" || self.item_type == "Katakana"
+      {
+        id: self.id,
+        item_id: self.item_id,
+        item_type: self.item_type,
+        item: self.transliteration,
+        answer: self.translation
+      }
+    end
+  end
 end

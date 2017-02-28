@@ -260,6 +260,9 @@ PublicDeck.destroy_all
 PublicCard.destroy_all
 
 pb_one = PublicDeck.create(name: "Hiragana", description: "All regular Hiragana", user_id: el_bagre.id)
+Searchable.where(item_type: "Hiragana").to_a.map do |kana|
+  PublicCard.create(searchable_id: kana.id, public_deck_id: pb_one.id)
+end
 pb_two = PublicDeck.create(name: "All Hiragana", description: "All Hiragana", user_id: el_bagre.id)
 pb_three = PublicDeck.create(name: "All Katakana", description: "All Katakana", user_id: el_bagre.id)
 pb_four = PublicDeck.create(name: "Katakana", description: "All normal Katakana", user_id: el_bagre.id)

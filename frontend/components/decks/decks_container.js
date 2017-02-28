@@ -4,7 +4,6 @@ import * as Query from '../../actions/query_actions';
 import Decks from './decks';
 
 const mapStateToProps = ({ session, decks, query }) => ({
-    currentUser: session.currentUser,
     decks: decks.index,
     currentDeck: decks.detail,
     queryResults: query

@@ -17,12 +17,14 @@ class Api::PublicDecksController < ApplicationController
   end
 
   def index
-    @public_decks = PublicDeck.all
+    @public_decks = PublicDeck.all.preload(:searchables)
     render :index
   end
 
   def show
-    @public_deck = PublicDeck.find(params[:id])
+    @public_deck = PublicDeck.where(id: params[:id])
+                             .preload(:searchables)
+                             .first
     render :show
   end
 

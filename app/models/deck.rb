@@ -12,6 +12,7 @@
 
 class Deck < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 1, maximum: 15 }
+  validates :name, uniqueness: { scope: :user_id }
 
   has_many :associated_cards,
     foreign_key: :deck_id,

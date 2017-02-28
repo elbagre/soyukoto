@@ -16,6 +16,8 @@ $sakura: #E59A9A;
 $dark-sakura: #BD5A5A;
 $light-sakura: #fef8f8;
 $pink-sakura: #FEF1F1;
+$dark-pink: #F0ADAD;
+$slate: #708090;
 
 %content {
   padding: 61px 12.5% 0 12.5%;
@@ -34,5 +36,28 @@ $pink-sakura: #FEF1F1;
     padding: 20px;
     min-height: 40px;
     box-sizing: border-box;
+  }
+}
+
+%full-width-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  li {
+    display: flex;
+    width: 100%;
+  }
+
+  li:nth-child(2n) {
+    background: $light-sakura;
+  }
+
+  li:nth-child(2n + 1) {
+    background: #fff;
+  }
+
+  li:last-child {
+    border-bottom: 20px solid #eee;
   }
 }

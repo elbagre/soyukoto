@@ -73,7 +73,6 @@ class NewDeckModal extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createDeck({
-      user_id: this.props.currentUser.id,
       name: this.state.name,
       description: this.state.description,
       cards: this.state.cards

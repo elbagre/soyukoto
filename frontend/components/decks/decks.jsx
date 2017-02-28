@@ -77,7 +77,6 @@ class Decks extends React.Component {
           clearMatches={this.props.clearMatches}
           queryResults={this.props.queryResults}
           createDeck={this.props.createDeck}
-          currentUser={this.props.currentUser}
           closeModal={this.closeModal} />
       </div>
     )
