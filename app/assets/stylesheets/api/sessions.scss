@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Nagayama';
-  src: local("nagayama_kai"),
-       url('nagayama_kai08.otf');
-  font-weight: bold;
-}
-
 .error {
   position: absolute;
   display: flex;
@@ -27,8 +20,9 @@
 }
 
 .japanese {
-  font-family: 'Nagayama';
+  font-family: 'Kouzan';
   p {
+    color: #aaa;
     font-family: inherit;
     font-size: 30px;
     writing-mode: vertical-rl;
