@@ -158,42 +158,9 @@
 }
 
 .decks-list {
-  display: flex;
-  flex-wrap: wrap;
-  li {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px 0;
-    width: 20%;
-    height: 140px;
-    h4 {
-      text-align: center;
-    }
-    p {
-      margin-top: 10px;
-      background: #eee;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      height: 75px;
-      width: 75px;
-      padding: 20px;
-      color: #000;
-      font-family: 'Kouzan';
-      font-size: 72px;
-    }
-  }
-
-  li:hover {
-    color: #000;
-    p {
-      background: #F0ADAD;
-      border: 1px solid $dark-sakura;
-      color: #fff;
-    }
+  @extend %display-list;
+  p {
+    font-family: 'Kouzan';
   }
 }
 

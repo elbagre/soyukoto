@@ -46,6 +46,48 @@ class PublicDecks extends React.Component {
         </div>
         <div className="public-deck-categories">
           <h2>Topics</h2>
+          <ul>
+            <li>
+              <h4>Kana</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Joyo</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>JLPT</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Tourism</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>School</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Work</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Bar</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Food</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Shopping</h4>
+              <p></p>
+            </li>
+            <li>
+              <h4>Sports</h4>
+              <p></p>
+            </li>
+          </ul>
         </div>
       </div>
     );

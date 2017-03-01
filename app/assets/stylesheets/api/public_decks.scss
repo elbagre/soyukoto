@@ -117,3 +117,10 @@
 
   }
 }
+
+.public-deck-categories {
+  padding-bottom: 20px; 
+  ul {
+    @extend %display-list;
+  }
+}

@@ -1,15 +1,13 @@
 @font-face {
   font-family: 'Kouzan';
-  src: local("KouzanBrushFontGyousyo"),
-  url('kouzangyousho.ttf');
+  src: url(asset_path("kouzangyousho.ttf"));
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Gen Ei Gothic';
-  src: local("GenEiGothicN-Bold") format("otf"),
-  url("GenEiGothicN-Bold.otf");
-  font-weight: normal;
+  font-family: 'MigMix';
+  src: url(asset_path("mig-mix-1p-bold.ttf"));
+  src: url(asset_path("migmix-1p-regular.ttf"));
 }
 
 $sakura: #E59A9A;
@@ -36,6 +34,50 @@ $slate: #708090;
     padding: 20px;
     min-height: 40px;
     box-sizing: border-box;
+  }
+}
+
+%display-list {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0;
+    width: 20%;
+    height: auto;
+  }
+
+  h4 {
+    padding: 10px;
+    color: #aaa;
+  }
+
+  p {
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    height: 75px;
+    width: 75px;
+    padding: 20px;
+    color: #000;
+    font-size: 72px;
+  }
+
+  li:hover {
+    color: #000;
+    h4 {
+      color: #000;
+    }
+    p {
+      background: #F0ADAD;
+      border: 1px solid $dark-sakura;
+      color: #fff;
+    }
   }
 }
 

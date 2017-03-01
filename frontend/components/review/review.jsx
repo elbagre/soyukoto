@@ -5,8 +5,17 @@ import { withRouter, hashHistory } from 'react-router';
 class Review extends React.Component {
   constructor(props) {
     super(props);
+    this.reviewGrade = this.reviewGrade.bind(this);
     this.state = {
-      cards: []
+      cards: [],
+      finished: false,
+      score: 0,
+      key: {
+        0.1: 0,
+        0.5: 0,
+        1: 1,
+        2: 1
+      }
     }
   }
 
@@ -16,7 +25,8 @@ class Review extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.deck !== this.props.deck && !this.state.cards.length ) {
-      const cards = nextProps.deck.cards.filter( (card) => {
+      let cards = shuffle(nextProps.deck.cards);
+      cards = cards.filter( (card) => {
         if (card.grade < 1.6) {
           return card;
         }
@@ -26,8 +36,8 @@ class Review extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.cards.length < 1) {
-      hashHistory.push('/deck');
+    if (this.state.cards.length < 1 && !this.state.finished) {
+      this.setState({ finished: true });
     }
   }
 
@@ -44,28 +54,9 @@ class Review extends React.Component {
       this.state.cards[0].grade = grade;
       this.props.updateCard(this.state.cards[0]);
       this.setState({
-        cards: this.state.cards.slice(1)
+        cards: this.state.cards.slice(1),
+        score: this.state.score + this.state.key[grade]
       });
-    }
-  }
-
-  persistCard(e) {
-    if (this.state.cards.length > 1) {
-      this.setState({
-        cards: this.state.cards.slice(1)
-      });
-    } else {
-      hashHistory.push('/deck');
-    }
-  }
-
-  passCard(e) {
-    if (this.state.cards.length > 1) {
-      this.setState({
-        cards: this.state.cards.slice(1)
-      });
-    } else {
-      hashHistory.push(`/deck`);
     }
   }
 
@@ -81,12 +72,35 @@ class Review extends React.Component {
     }
   }
 
+  reviewGrade() {
+    // const percentScore = this.state.score /
+    if (this.state.score > 8) {
+      return "A";
+    } else if (this.state.score > 7) {
+      return "B";
+    } else if (this.state.score > 6) {
+      return "C";
+    } else if (this.state.score > 5) {
+      return "D";
+    } else {
+      return "F";
+    }
+  }
+
   render() {
-    if (this.props.deck && this.state.cards[0]) {
+    if (this.state.finished) {
+      return(
+        <div className="results">
+          <h3>Results</h3>
+          <p>{this.reviewGrade()}</p>
+          <p>{this.state.score}/10</p>
+        </div>
+      );
+    } else if (this.props.deck && this.state.cards[0]) {
       return(
         <div className="review">
           <div  className="review-item"
-                onMouseEnter={this.showAnswer(this.state.cards[0])}
+                onClick={this.showAnswer(this.state.cards[0])}
                 onMouseLeave={this.showItem(this.state.cards[0])}>
                 {this.state.cards[0].item}
           </div>
