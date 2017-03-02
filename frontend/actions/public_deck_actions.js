@@ -1,4 +1,5 @@
 import * as Util from '../util/public_deck_api_util';
+import { hashHistory } from 'react-router';
 
 export const RECEIVE_PUBLIC_DECKS = "RECEIVE_PUBLIC_DECKS";
 export const RECEIVE_PUBLIC_DECK = "RECEIVE_PUBLIC_DECK";
@@ -25,8 +26,11 @@ export const receivePublicDeck = (deck) => ({
 
 export const createPublicDeck = (deck) => (dispatch) => {
   Util.createPublicDeck(deck)
-      .then( (decks) => dispatch(receivePublicDecks(decks)));
-};
+      .then( (publicDeck) => {
+        dispatch(receivePublicDeck(publicDeck));
+        hashHistory.push(`/public/${publicDeck.id}`);
+      });
+}
 
 export const destroyPublicDeck = (id) => (dispatch) => {
   Util.destroyPublicDeck(id)

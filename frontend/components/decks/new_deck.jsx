@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, withRouter, hashHistory } from 'react-router'
-import Modal from 'react-modal';
+import { withRouter, hashHistory } from 'react-router';
 
-class NewDeckModal extends React.Component {
+class NewDeck extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -14,41 +13,11 @@ class NewDeckModal extends React.Component {
 
     this.state = {
       focused: "hidden",
-      modalOpen: this.props.modalOpen,
       name: "",
       description: "",
       search: "",
       cards: []
     };
-
-    this.style = {
-      overlay : {
-        position        : 'fixed',
-        top             : 0,
-        left            : 0,
-        right           : 0,
-        bottom          : 0,
-        backgroundColor : 'rgba(0, 0, 0, 0.8)',
-        zIndex          : 10
-      },
-      content : {
-        opacity         : 1,
-        backgroundColor : '#fff',
-        position        : 'fixed',
-        top             : '15vh',
-        height          : '60vh',
-        minHeight      : '600px',
-        width           : '600px',
-        margin          : '0 auto',
-        bottom          : '0',
-        border          : '1px solid #aaa',
-        zIndex          : 11
-      }
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ modalOpen: nextProps.modalOpen });
   }
 
   handleChange(type) {
@@ -72,12 +41,20 @@ class NewDeckModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createDeck({
-      name: this.state.name,
-      description: this.state.description,
-      cards: this.state.cards
-    });
-    this.clearModal();
+
+    if (this.props.location === 'deck') {
+      this.props.createDeck({
+        name: this.state.name,
+        description: this.state.description,
+        cards: this.state.cards
+      });
+    } else {
+      this.props.createPublicDeck({
+        name: this.state.name,
+        description: this.state.description,
+        cards: this.state.cards
+      });
+    }
   }
 
   handleFocus(phase) {
@@ -92,17 +69,6 @@ class NewDeckModal extends React.Component {
         });
       }
     }
-  }
-
-  clearModal() {
-    this.setState({
-      name: "",
-      description: "",
-      cards: [],
-      modalOpen: false
-    });
-
-    this.props.closeModal();
   }
 
   addCard(card) {
@@ -161,16 +127,13 @@ class NewDeckModal extends React.Component {
 
   render() {
     return(
-      <Modal isOpen={this.props.modalOpen}
-        onRequestClose={this.props.closeModal}
-        style={this.style}
-        contentLabel="NewDeckModal">
-        <div className="deck-create">
-          <form className="deck-form" onSubmit={this.handleSubmit}>
-            <div>
-              <h3>Create New Deck</h3>
-              <input type="submit" value="Submit"/>
-            </div>
+      <div className="deck-create">
+        <form className="deck-form" onSubmit={this.handleSubmit}>
+          <div className="section-header">
+            <h2>New Deck</h2>
+            <input type="submit" value="Submit"/>
+          </div>
+          <div className="inputs">
             <div>
               <label>Name</label>
               <input type="text"
@@ -183,24 +146,24 @@ class NewDeckModal extends React.Component {
                 onChange={this.handleChange("description")}
                 value={this.state.description} />
             </div>
-            <div className="card-search">
-              <input type="text"
-                     onChange={this.handleChange("search")}
-                     placeholder="Add Cards (optional)"
-                     onFocus={this.handleFocus("in")}
-                     value={this.state.search} />
-              <ul className={this.state.focused}>
-                {this.queries()}
-              </ul>
-            </div>
-         </form>
-         <ul className="deck-cards">
-           {this.cards()}
-         </ul>
-        </div>
-      </Modal>
+          </div>
+          <div className="card-search">
+            <input type="text"
+                   onChange={this.handleChange("search")}
+                   placeholder="Add Cards (optional)"
+                   onFocus={this.handleFocus("in")}
+                   value={this.state.search} />
+            <ul className={this.state.focused}>
+              {this.queries()}
+            </ul>
+          </div>
+       </form>
+       <ul className="deck-cards">
+         {this.cards()}
+       </ul>
+      </div>
     );
   }
 }
 
-export default withRouter(NewDeckModal);
+export default withRouter(NewDeck);

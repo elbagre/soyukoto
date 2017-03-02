@@ -6,8 +6,7 @@
 
 @font-face {
   font-family: 'MigMix';
-  src: url(asset_path("mig-mix-1p-bold.ttf"));
-  src: url(asset_path("migmix-1p-regular.ttf"));
+  src: url(asset_path("migmix-1p-bold.ttf"));
 }
 
 $red-sakura: #cb3535;
@@ -18,23 +17,71 @@ $pink-sakura: #FEF1F1;
 $dark-pink: #F0ADAD;
 $slate: #708090;
 
-%content {
+%large-button {
+  button, input[type="submit"] {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 2px #ccc;
+    color: $sakura;
+    font-weight: bold;
+    border: 5px solid $sakura;
+    width: auto;
+  }
+
+  button:hover, input[type="submit"]:hover {
+    background: $sakura;
+    color: #fff;
+  }
+}
+
+%greyscale {
+  color: #aaa;
+  background: #eee;
+}
+
+%primary-header {
+  font-size: 56px;
+  color: #000;
+  padding: 20px;
+}
+
+%secondary-header {
+  font-size: 40px;
+  color: #aaa;
+  padding: 20px;
+}
+
+%inputs {
+  label {
+    width: 33%;
+    padding: 20px;
+  }
+
+  input[type="text"] {
+    width: 67%;
+  }
+}
+
+%body-margins {
   padding: 61px 12.5% 0 12.5%;
 }
 
-%detail-page {
+%flex-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%full-page {
   box-sizing: border-box;
   min-height: 100vh;
+}
 
-  h2 {
-    font-size: 56px;
-    padding: 20px 20px 10px 20px;
-  }
-
-  h4 {
+%header-padding {
+  h1, h2, h3, h4, h5, h6 {
     padding: 20px;
-    min-height: 40px;
-    box-sizing: border-box;
   }
 }
 
@@ -153,5 +200,38 @@ $slate: #708090;
 
   li:last-child {
     border-bottom: 20px solid #eee;
+  }
+}
+
+%wide-search-bar {
+  width: 100%;
+  position: relative;
+
+  input[type="text"] {
+    border: 0;
+    border-bottom: 10px solid #eee;
+    border-top: 10px solid #eee;
+    padding: 10px 0;
+    background: whitesmoke;
+    width: 100%;
+    text-align: center;
+  }
+
+  input[type="text"]:focus {
+    border: 0;
+    border-top: 10px solid #ccc;
+    border-bottom: 10px solid #ccc;
+  }
+
+  ul {
+    left: 20%;
+    right: 20%;
+    min-width: 420px;
+    width: 60%;
+    position: absolute;
+
+    li {
+      width: 100%;
+    }
   }
 }

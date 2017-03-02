@@ -37,7 +37,7 @@ class PublicDeck extends React.Component {
   render() {
     return(
       <div className="public-deck-detail">
-        <div className="deck-header">
+        <div className="public-deck-header">
           <div>
             <h2>{this.props.publicDeck.name}</h2>
             <h4>{this.props.publicDeck.description}</h4>

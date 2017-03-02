@@ -32,7 +32,8 @@
   }
 
   .sidebar {
-    background: $pink-sakura;
+    background: $dark-pink;
+    color: #fff;
     box-sizing: border-box;
     position: fixed;
     right: 0;
@@ -68,7 +69,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: #FEF1F1;
+    background: $dark-pink;
     width: 12.5%;
 
     ul {

@@ -4,6 +4,15 @@ class Api::PublicDecksController < ApplicationController
     @public_deck.user_id = current_user.id
 
     if @public_deck.save
+      params[:public_deck][:cards] ||= []
+      cards = params[:public_deck][:cards].map { |_k, value| value }
+
+      cards.each do |card|
+        PublicCard.create(
+          public_deck_id: @public_deck.id,
+          searchable_id: card['id'].to_i
+        )
+      end
       render :show
     else
       render json: @public_deck.errors.full_messages, status: 401
@@ -12,7 +21,6 @@ class Api::PublicDecksController < ApplicationController
 
   def update
     @public_deck = deck.find(params[:id])
-    # @public_deck.update(public_deck_params)
     render :show
   end
 

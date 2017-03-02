@@ -99,7 +99,7 @@ class Review extends React.Component {
         <div className="results">
           <div>
             <h3>Results</h3>
-            <RecapGraph percentage={this.state.score / this.props.deck.cards.length * 100}/>
+            <RecapGraph percentage={Math.floor(this.state.score / this.props.deck.cards.length * 100)}/>
           </div>
           <div className="review-nav">
             <Link to="/deck">Home</Link>

@@ -1,5 +1,5 @@
 .review {
-  @extend %content;
+  @extend %body-margins;
   box-sizing: border-box;
   background: whitesmoke;
   min-height: 100vh;
@@ -18,8 +18,8 @@
 }
 
 .results {
-  @extend %content;
-  @extend %detail-page;
+  @extend %body-margins;
+  @extend %full-page;
   background: whitesmoke;
 
 

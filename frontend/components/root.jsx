@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionPageContainer from './session/session_page_container';
 import DecksContainer from './decks/decks_container';
+import NewDeckContainer from './decks/new_deck_container';
 import DeckContainer from './decks/deck_container';
 import ReviewContainer from './review/review_container';
 import PublicDeckContainer from './public_decks/public_deck_container';
@@ -35,9 +36,12 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <Route path="/deck" component={DecksContainer} />
+          <Route path="/deck/new" component={NewDeckContainer} />
+          <Route path="/deck/edit" component={NewDeckContainer} />
           <Route path="/deck/:id" component={DeckContainer} />
           <Route path="/deck/:id/review" component={ReviewContainer} />
           <Route path="/public" component={PublicDecksContainer} />
+          <Route path="/public/new" component={NewDeckContainer} />
           <Route path="/public/:id" component={PublicDeckContainer} />
         </Route>
         <Route path="/entry" component={SessionPageContainer} onEnter={_redirectIfLoggedIn}>

@@ -31,7 +31,10 @@ export const receiveDeck = (deck) => ({
 
 export const createDeck = (deck) => (dispatch) => {
   Util.createDeck(deck)
-      .then( (deck) => dispatch(receiveDeck(deck)))
+      .then( (newDeck) => {
+        dispatch(receiveDeck(newDeck));
+        hashHistory.push(`/deck/${newDeck.id}`);
+      })
       .then( () => dispatch(requestAllDecks()));
 }
 

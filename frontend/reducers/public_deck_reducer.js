@@ -1,4 +1,5 @@
 import * as Action from '../actions/public_deck_actions';
+import { hashHistory } from 'react-router'
 import merge from 'lodash/merge';
 
 const defaultState = {

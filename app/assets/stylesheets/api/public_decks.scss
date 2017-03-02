@@ -1,15 +1,26 @@
 .public-decks {
-  @extend %content;
+  @extend %body-margins;
 
   h1 {
-    padding: 20px;
-    font-weight: bold;
-    color: #aaa;
+    @extend %primary-header;
     border-bottom: 5px solid whitesmoke;
   }
 
   h2 {
-    padding: 20px;
+    @extend %secondary-header;
+  }
+
+  .section-header {
+    a {
+      font-size: 20px;
+      padding: 10px 5px;
+      margin: 10px;
+      color: #aaa;
+    }
+
+    a:hover {
+      color: $slate;
+    }
   }
 
   .public-decks-list {
@@ -76,25 +87,10 @@
 
 .public-deck-detail {
   background: whitesmoke;
-  @extend %content;
-  @extend %detail-page;
-
-  button {
-    padding: 20px;
-    border-radius: 5px;
-    background: #fff;
-    box-shadow: 0 2px 2px #ccc;
-    color: $sakura;
-    font-weight: bold;
-    border: 5px solid $sakura;
-    width: auto;
-    margin: 40px 20px;
-  }
-
-  button:hover {
-    background: $sakura;
-    color: #fff;
-  }
+  @extend %body-margins;
+  @extend %full-page;
+  @extend %large-button;
+  @extend %header-padding;
 
   ul {
     @extend %full-width-list;
@@ -103,7 +99,6 @@
       width: 33%;
       padding: 10px 20px;
       font-weight: 500;
-      cursor: default;
     }
 
     li:first-child {
@@ -118,8 +113,12 @@
   }
 }
 
+.public-deck-header {
+@extend %flex-row-between;
+}
+
 .public-deck-categories {
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
   ul {
     @extend %display-list;
   }

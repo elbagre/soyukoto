@@ -1,36 +1,19 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
-// import DeckModal from './deck_modal';
-import NewDeckModal from './new_deck_modal';
+import { hashHistory, Link } from 'react-router';
 
 class Decks extends React.Component {
   constructor(props) {
     super(props);
     this.decks = this.decks.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.openDeck = this.openDeck.bind(this);
 
     this.state = {
-      modalOpen: false,
       loading: true
     }
   }
 
   componentDidMount() {
     this.props.requestDecks();
-  }
-
-  openModal() {
-    this.setState({
-      modalOpen: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      modalOpen: false,
-    });
   }
 
   openDeck(deck) {
@@ -66,21 +49,22 @@ class Decks extends React.Component {
         <div className="decks-container">
           <div className="decks-nav">
             <h3>Decks</h3>
-            <a onClick={this.openModal}>New Deck</a>
+            <Link to="/deck/new">New Deck+</Link>
           </div>
           <ul className="decks-list">
             {this.decks()}
           </ul>
         </div>
-        <NewDeckModal modalOpen={this.state.modalOpen}
-          requestMatches={this.props.requestMatches}
-          clearMatches={this.props.clearMatches}
-          queryResults={this.props.queryResults}
-          createDeck={this.props.createDeck}
-          closeModal={this.closeModal} />
       </div>
     )
   }
 }
 
 export default Decks;
+
+// <NewDeckModal modalOpen={this.state.modalOpen}
+//   requestMatches={this.props.requestMatches}
+//   clearMatches={this.props.clearMatches}
+//   queryResults={this.props.queryResults}
+//   createDeck={this.props.createDeck}
+//   closeModal={this.closeModal} />

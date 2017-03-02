@@ -2,15 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .deck-detail {
-  @extend %content;
-  @extend %detail-page;
+  @extend %body-margins;
+  @extend %full-page;
+  @extend %header-padding;
 }
 
 .deck-header {
-  display: flex;
-  width: 100%;
-  background: #fff;
-  justify-content: space-between;
+  @extend %flex-row-between;
 
   .deck-nav {
     display: flex;
@@ -31,38 +29,8 @@
   }
 }
 
-.deck-search {
-  width: 100%;
-  position: relative;
-  background: salmon;
-
-  input[type="text"] {
-    border: 0;
-    border-bottom: 10px solid #eee;
-    border-top: 10px solid #eee;
-    padding: 10px 0;
-    background: whitesmoke;
-    width: 100%;
-    text-align: center;
-  }
-
-  input[type="text"]:focus {
-    border: 0;
-    border-top: 10px solid #ccc;
-    border-bottom: 10px solid #ccc;
-  }
-
-  ul {
-    left: 20%;
-    right: 20%;
-    min-width: 420px;
-    width: 60%;
-    position: absolute;
-
-    li {
-      width: 100%;
-    }
-  }
+.deck-search, .card-search {
+  @extend %wide-search-bar;
 }
 
 .deck-cards {
@@ -120,12 +88,10 @@
 }
 
 .decks {
-  @extend %content;
+  @extend %body-margins;
   height: 100%;
   h1 {
-    padding: 20px;
-    color: #aaa;
-    font-weight: bold;
+    @extend %primary-header;
   }
 }
 
@@ -137,18 +103,14 @@
   top: 198px;
 
   .decks-nav {
-    color: #000;
+    @extend %flex-row-between;
+    @extend %greyscale;
     padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
-    background: #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
 
     a {
       font-size: 18px;
-      color: #aaa;
     }
 
     a:hover {
@@ -164,84 +126,21 @@
   }
 }
 
+.deck-create {
+  @extend %body-margins;
+  @extend %full-page;
+  @extend %header-padding;
+}
+
 .deck-form {
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: baseline;
-    justify-content: space-between;
-    padding: 10px;
-
-    input[type="text"] {
-      width: 50%;
-      padding: 5px;
-      font-size: 12px;
-      height: 50%;
+  @extend %large-button;
+  .inputs {
+    width: 50%;
+    div {
+      @extend %flex-row-between;
+      @extend %inputs;
+      padding: 0 20px 20px 0;
     }
-
-    ul {
-      width: 67%;
-    }
-   }
-
-  div:first-child {
-    align-items: center;
-
-    h3 {
-      height: auto;
-    }
-  }
-
-  div:last-child {
-    padding: 10px 0;
-    margin: 10px 0;
-    justify-content: center;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background: #eee;
-    position: relative;
-    z-index: 2;
-
-    ul {
-      position: absolute;
-      top: 48px;
-      left: 15%;
-      right: 15%;
-      width: 70%;
-      z-index: 0;
-    }
-
-    input[type="text"] {
-      box-sizing: border-box;
-      background: #fff;
-      width: 70%;
-      border-radius: 10px;
-      padding: 5px 10px;
-      text-align: center;
-    }
-  }
-
-  label {
-    color: #aaa;
-    padding: 10px;
-  }
-
-  input[type="submit"] {
-    align-self: flex-end;
-    background: #eee;
-    color: #aaa;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-  }
-
-  input[type="submit"]:hover {
-    background: #F0ADAD;
-    border: 1px solid $dark-sakura;
-    color: #fff;
   }
 }
 

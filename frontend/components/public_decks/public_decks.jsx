@@ -14,7 +14,7 @@ class PublicDecks extends React.Component {
   }
 
   decks() {
-    if  (this.props.publicDecks) {
+    if (this.props.publicDecks) {
       return this.props.publicDecks.map( (deck, idx) => {
         return(
           <li key={idx}>
@@ -34,7 +34,10 @@ class PublicDecks extends React.Component {
       <div className="public-decks">
         <h1>Public Decks</h1>
         <div>
-          <h2>Popular Decks</h2>
+          <div className="section-header">
+            <h2>Popular Decks</h2>
+            <Link to="/public/new">Create Deck+</Link>
+          </div>
           <ul className="public-deck-nav">
             <li><p>Name</p></li>
             <li><p>Description</p></li>
