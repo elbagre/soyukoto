@@ -1,20 +1,23 @@
 import React from 'react';
 import shuffle from 'shuffle-array';
-import { withRouter, hashHistory } from 'react-router';
+import { withRouter, hashHistory, Link } from 'react-router';
+// Components
+import RecapGraph from '../graphs/recap_graph';
 
 class Review extends React.Component {
   constructor(props) {
     super(props);
     this.reviewGrade = this.reviewGrade.bind(this);
+    this.reset = this.reset.bind(this);
     this.state = {
       cards: [],
       finished: false,
       score: 0,
       key: {
-        0.1: 0,
-        0.5: 0,
-        1: 1,
-        2: 1
+        0: 0,
+        40: 0.5,
+        80: 1,
+        100: 1
       }
     }
   }
@@ -26,11 +29,6 @@ class Review extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.deck !== this.props.deck && !this.state.cards.length ) {
       let cards = shuffle(nextProps.deck.cards);
-      cards = cards.filter( (card) => {
-        if (card.grade < 1.6) {
-          return card;
-        }
-      });
       this.setState({ cards });
     }
   }
@@ -72,6 +70,14 @@ class Review extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({
+      finished: false,
+      cards: shuffle(this.props.deck.cards),
+      score: 0
+    });
+  }
+
   reviewGrade() {
     // const percentScore = this.state.score /
     if (this.state.score > 8) {
@@ -91,9 +97,15 @@ class Review extends React.Component {
     if (this.state.finished) {
       return(
         <div className="results">
-          <h3>Results</h3>
-          <p>{this.reviewGrade()}</p>
-          <p>{this.state.score}/10</p>
+          <div>
+            <h3>Results</h3>
+            <RecapGraph percentage={this.state.score / this.props.deck.cards.length * 100}/>
+          </div>
+          <div className="review-nav">
+            <Link to="/deck">Home</Link>
+            <Link to={`/deck/${this.props.deckId}`}>Deck</Link>
+            <button onClick={this.reset}>Again</button>
+          </div>
         </div>
       );
     } else if (this.props.deck && this.state.cards[0]) {
@@ -106,16 +118,16 @@ class Review extends React.Component {
           </div>
           <div className="review-nav">
             <button className="fail"
-                    onClick={this.updateCard(0.1)}
+                    onClick={this.updateCard(0)}
                     >What?</button>
             <button className="fail"
-                    onClick={this.updateCard(0.5)}
+                    onClick={this.updateCard(40)}
                     >Challenge</button>
             <button className="fail"
-                    onClick={this.updateCard(1)}
+                    onClick={this.updateCard(80)}
                     >Not Hard</button>
             <button className="pass"
-                    onClick={this.updateCard(2)}
+                    onClick={this.updateCard(100)}
                     >Easy</button>
           </div>
         </div>

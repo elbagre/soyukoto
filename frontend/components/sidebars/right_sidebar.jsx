@@ -10,7 +10,8 @@ class RightSidebar extends React.Component {
         'hiragana': ['ひらがな', 'Hiragana'],
         'katakana': ['カタカナ', 'Katakana'],
         'deck': ['勉強', 'Study'],
-        'public': ['探索', 'Explore']
+        'public': ['探索', 'Explore'],
+        'review': ['練習', 'Practice']
       }
     }
   }

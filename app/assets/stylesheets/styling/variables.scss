@@ -10,6 +10,7 @@
   src: url(asset_path("migmix-1p-regular.ttf"));
 }
 
+$red-sakura: #cb3535;
 $sakura: #E59A9A;
 $dark-sakura: #BD5A5A;
 $light-sakura: #fef8f8;
@@ -34,6 +35,57 @@ $slate: #708090;
     padding: 20px;
     min-height: 40px;
     box-sizing: border-box;
+  }
+}
+
+%card {
+  display: flex;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  height: 60vh;
+  width: 60vh;
+  align-items: center;
+  border: 10px solid #F0ADAD;
+  outline: 3px solid $slate;
+  background: #fff;
+  box-shadow: 8px 8px 8px #ccc;
+}
+
+%button-nav {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  button, a {
+    display: inline-block;
+    width: 20%;
+    padding: 2vh;
+    text-align: center;
+    background: #fff;
+    border-top: 5px solid rgb( 0, 209, 167);
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 5px 5px #ccc;
+    color: rgb(0, 209, 167);
+    font-size: 36px;
+  }
+
+  button:first-child, a:first-child {
+    border-left: 1px solid #eee;
+    border-top: 5px solid #ff0032;
+    color: #ff0032;
+  }
+
+  button:nth-child(2), a:nth-child(2) {
+    border-top: 5px solid #ff5b7b;
+    color: #ff5b7b;
+  }
+
+  button:nth-child(3), a:nth-child(3) {
+    border-top: 5px solid #ffb7c5;
+    color: #ffb7c5;
   }
 }
 

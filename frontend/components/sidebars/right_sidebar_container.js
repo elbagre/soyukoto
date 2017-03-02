@@ -11,7 +11,7 @@ const mapStateToProps = ({session}) => {
 
 const mapDispatchToProps = (dispatch, { location }) => {
   return {
-    location: location.pathname.slice(1)
+    location: location.pathname.split('/').slice(-1)[0]
   };
 }
 

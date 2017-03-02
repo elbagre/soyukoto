@@ -4,60 +4,43 @@
   background: whitesmoke;
   min-height: 100vh;
   .review-item {
-    display: flex;
-    width: 50%;
-    margin: 20px auto 0 auto;
+    @extend %card;
     font-size: 150px;
     font-weight: bold;
-    height: 50vh;
     justify-content: center;
-    align-items: center;
     cursor: default;
-    border: 10px solid #F0ADAD;
     font-family: 'MigMix';
-    outline: 3px solid #000;
-    background: #fff;
-    box-shadow: 8px 8px 8px #ccc;
   }
 
   .review-nav {
-    width: 100%;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    button {
-      width: 20%;
-      height: 10vh;
-      background: #fff;
-      border-top: 5px solid 	rgb( 0, 209, 167);
-      border-right: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      box-shadow: 0 5px 5px #ccc;
-      color: rgb(0, 209, 167);
-      font-size: 36px;
-    }
-
-    button:first-child {
-      border-left: 1px solid #eee;
-      border-top: 5px solid #ff0032;
-      color: #ff0032;
-    }
-
-    button:nth-child(2) {
-      border-top: 5px solid #ff5b7b;
-      color: #ff5b7b;
-    }
-
-    button:nth-child(3) {
-      border-top: 5px solid #ffb7c5;
-      color: #ffb7c5;
-    }
+    @extend %button-nav;
   }
 }
 
 .results {
   @extend %content;
   @extend %detail-page;
+  background: whitesmoke;
+
+
+  div:first-child {
+    @extend %card;
+    background: #fff;
+    flex-direction: column;
+  }
+
+  h3 {
+    font-weight: bold;
+    color: #aaa;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    padding: 5vh;
+    max-height: 15vh;
+    box-sizing: border-box;
+  }
+
+  div:nth-child(2) {
+    @extend %button-nav;
+  }
 }
