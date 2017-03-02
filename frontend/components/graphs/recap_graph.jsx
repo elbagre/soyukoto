@@ -13,6 +13,8 @@ class RecapGraph extends React.Component {
   drawText(ctx, percentage) {
     if (percentage === 100) {
       ctx.fillText(`${percentage}%`, 220, 400);
+    } else if (percentage < 10) {
+      ctx.fillText(`  ${percentage}%`, 220, 400);
     } else {
       ctx.fillText(` ${percentage}%`, 220, 400);
     }

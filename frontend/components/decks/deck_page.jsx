@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
+// Components
+import DeckGraph from '../graphs/deck_graph';
+import RecapGraph from '../graphs/recap_graph';
 
 class DeckPage extends React.Component {
   constructor(props) {
@@ -12,6 +15,8 @@ class DeckPage extends React.Component {
     this.queries = this.queries.bind(this);
     this.createCard = this.createCard.bind(this);
     this.reset = this.reset.bind(this);
+    this.averageScore = this.averageScore.bind(this);
+    this.totals = this.totals.bind(this);
     this.state = {
       search: "",
       focused: "hidden"
@@ -81,6 +86,26 @@ class DeckPage extends React.Component {
     }
   }
 
+  totals() {
+    const counts = {
+      'A': 0,
+      'B': 0,
+      'C': 0,
+      'D': 0,
+      'F': 0
+    }
+
+    this.props.deck.cards.forEach( (card) => {
+      if (card.grade >= 90) counts['A'] += 1;
+      else if (card.grade >= 80) counts['B'] += 1;
+      else if (card.grade >= 70) counts['C'] += 1;
+      else if (card.grade >= 60) counts['D'] += 1;
+      else counts['F'] += 1;
+    });
+
+    return [counts['F'], counts['D'], counts['C'], counts['B'], counts['A']];
+  }
+
   cards() {
     if (this.props.deck.cards) {
       return this.props.deck.cards.map( (card, idx) => {
@@ -93,6 +118,13 @@ class DeckPage extends React.Component {
         );
       });
     }
+  }
+
+  averageScore() {
+    const average = this.props.deck.cards.reduce( (average, card) => {
+      return average + card.grade;
+    }, 0);
+      return Math.floor(average / this.props.deck.cards.length);
   }
 
   render() {
@@ -123,9 +155,19 @@ class DeckPage extends React.Component {
               {this.queries()}
             </ul>
           </div>
-          <ul className="deck-cards">
-            {this.cards()}
-          </ul>
+          <div className="stats">
+            <h2>Deck Stats</h2>
+            <div className="deck-graphs">
+              <DeckGraph totals={this.totals()}/>
+              <RecapGraph percentage={this.averageScore()} />
+            </div>
+          </div>
+          <div className="cards">
+            <h2>Cards</h2>
+            <ul className="deck-cards">
+              {this.cards()}
+            </ul>
+          </div>
         </div>
       );
     } else {
