@@ -1,3 +1,5 @@
+
+
 .error {
   position: absolute;
   display: flex;
@@ -51,6 +53,18 @@
   flex-direction: column;
   position: relative;
 
+  input[type="submit"], .guest {
+    padding: 10px;
+    font-weight: bold;
+    background: transparent;
+  }
+
+  input[type="submit"]:hover, .guest:hover {
+    border-color: $dark-sakura;
+    color: #fff;
+    background: $sakura;
+  }
+
   .sakura {
     display: flex;
     position: absolute;
@@ -74,6 +88,7 @@
 
   h3 {
     padding: 10px 20px;
+    font-weight: normal;
     text-align: center;
     border-bottom: 2px solid #aaa;
   }
