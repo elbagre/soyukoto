@@ -86,7 +86,7 @@ class SessionPage extends React.Component {
   loginForm() {
     return(
       <div className="session-form">
-        <h3>Hisashiburi! Welcome back.</h3>
+        <h3>Welcome to Tango</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Username:</label>
