@@ -27,6 +27,7 @@
     @extend %full-width-list;
 
     li {
+      background: salmon;
       a {
         display: flex;
         width: 100%;
@@ -34,19 +35,17 @@
         cursor: pointer;
         p {
           padding: 5px 20px;
-          width: 15%;
+          width: 100%;
           cursor: inherit;
           background: inherit;
         }
 
         p:first-child {
-          width: 30%;
           font-size: 16px;
           font-weight: 600;
         }
 
         p:nth-child(2) {
-          width: 55%;
           font-size: 12px;
           color: #404040;
         }
@@ -66,22 +65,13 @@
 
   li {
     display: block;
-    width: 15%;
+    width: 100%;
     a, p {
-      display: block;
+      box-sizing: border-box;
       padding: 5px 20px;
-      width: 100%;
       color: #aaa;
       cursor: default;
     }
-  }
-
-  li:first-child {
-    width: 30%;
-  }
-
-  li:nth-child(2) {
-    width: 55%;
   }
 }
 

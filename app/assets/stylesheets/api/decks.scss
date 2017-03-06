@@ -95,15 +95,16 @@
 }
 
 .decks-container {
-  position: absolute;
-  bottom: 0;
-  right: 12.5%;
-  left: 12.5%;
-  top: 198px;
+  // position: absolute;
+  // bottom: 0;
+  // right: 12.5%;
+  // left: 12.5%;
+  // top: 198px;
 
   .decks-nav {
     @extend %flex-row-between;
     @extend %greyscale;
+    box-sizing: border-box;
     padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
