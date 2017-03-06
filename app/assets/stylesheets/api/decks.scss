@@ -62,14 +62,16 @@
 
     p {
       width: 100%;
-      background: #F0ADAD;
+      font-size: 2vw;
+      background: $light-sakura;
       padding-top: 5px;
       padding-bottom: 5px;
       text-align: center;
-      color: #fff;
+      color: $dark-sakura;
     }
 
     p:nth-child(2) {
+      font-size: 4vw;
       border-bottom: 1px solid $dark-sakura;
       background: #fff;
       font-family: "Kouzan";
@@ -94,28 +96,20 @@
   }
 }
 
-.decks-container {
-  // position: absolute;
-  // bottom: 0;
-  // right: 12.5%;
-  // left: 12.5%;
-  // top: 198px;
+.decks-nav {
+  @extend %flex-row-between;
+  @extend %greyscale;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
 
-  .decks-nav {
-    @extend %flex-row-between;
-    @extend %greyscale;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+  a {
+    font-size: 18px;
+  }
 
-    a {
-      font-size: 18px;
-    }
-
-    a:hover {
-      color: #000;
-    }
+  a:hover {
+    color: #000;
   }
 }
 
