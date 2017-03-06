@@ -50,13 +50,13 @@
       font-family: 'Kouzan';
       height: 100%;
       li {
-        font-size: 100px;
-        padding: 0 10px;
+        font-size: 8vw;
         writing-mode: vertical-rl;
       }
 
       li:nth-child(2n) {
-        font-size: 30px;
+        font-size: 2vw;
+        padding-right: 10px;
         font-family: 'Merriweather Sans', sans-serif;
       }
     }

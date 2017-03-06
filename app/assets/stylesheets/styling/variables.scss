@@ -59,6 +59,7 @@ $slate: #708090;
 
 %inputs {
   label {
+    color: $slate;
     width: 33%;
     padding: 20px;
   }
@@ -91,7 +92,6 @@ $slate: #708090;
 
 %card {
   display: flex;
-  width: 50%;
   margin: 20px auto 0 auto;
   height: 60vh;
   width: 60vh;
@@ -120,7 +120,7 @@ $slate: #708090;
     border-bottom: 1px solid #eee;
     box-shadow: 0 5px 5px #ccc;
     color: rgb(0, 209, 167);
-    font-size: 36px;
+    font-size: 3vw;
   }
 
   button:first-child, a:first-child {

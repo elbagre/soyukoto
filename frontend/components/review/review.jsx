@@ -119,13 +119,13 @@ class Review extends React.Component {
           <div className="review-nav">
             <button className="fail"
                     onClick={this.updateCard(0)}
-                    >What?</button>
+                    >Pass</button>
             <button className="fail"
                     onClick={this.updateCard(40)}
-                    >Challenge</button>
+                    >Hard</button>
             <button className="fail"
                     onClick={this.updateCard(80)}
-                    >Not Hard</button>
+                    >OK</button>
             <button className="pass"
                     onClick={this.updateCard(100)}
                     >Easy</button>

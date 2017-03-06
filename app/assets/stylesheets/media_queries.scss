@@ -9,7 +9,7 @@
   }
 // Deck Detail Page
   .deck-detail, .decks, .deck-create, .public-decks, .public-deck-detail, .review, .results {
-    min-width: 450px;
+    min-width: 495px;
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -39,23 +39,6 @@
 
       p:nth-child(2n + 1) {
         font-size: 5.0vw;
-      }
-    }
-  }
-
-  .search-queries {
-    li {
-      p, p:first-child {
-        width: 50%;
-      }
-      p:nth-child(2) {
-        display: none;
-      }
-    }
-
-    li:hover {
-      p {
-        width: 50%;
       }
     }
   }
@@ -98,4 +81,44 @@
     }
   }
 
+// New and Edit Pages
+  .inputs {
+    width: 100%;
+    div {
+      width: 100%;
+      label {
+        width: 40%;
+      }
+
+      input[type="text"] {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  // Headers and Sidebars
+  .sidebar {
+    li:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .left-sidebar > ul {
+    display: none;
+  }
+
+  .search-queries {
+    li {
+      p, p:first-child {
+        width: 50%;
+      }
+      p:nth-child(2) {
+        display: none;
+      }
+    }
+  }
 }
