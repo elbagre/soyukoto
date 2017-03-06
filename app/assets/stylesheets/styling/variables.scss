@@ -36,6 +36,10 @@ $slate: #708090;
   }
 }
 
+%hidden {
+  display: none;
+}
+
 %greyscale {
   color: #aaa;
   background: #eee;
@@ -224,10 +228,9 @@ $slate: #708090;
   }
 
   ul {
-    left: 20%;
-    right: 20%;
-    min-width: 420px;
-    width: 60%;
+    left: 25%;
+    right: 25%;
+    width: 50%;
     position: absolute;
 
     li {

@@ -1,0 +1,62 @@
+@media screen and (max-width: 650px) {
+  .left-sidebar, .sidebar {
+    width: 5%;
+  }
+  .left-sidebar > ul, .sidebar > ul, .bar-graph {
+    display: none;
+  }
+
+  .deck-detail, .decks, .deck-create, .public-decks, .public-deck-detail, .review, .results {
+    min-width: 500px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .deck-graphs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+
+    .canvas-graph {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .deck-cards {
+    li {
+      width: 100%;
+      height: auto;
+      margin-left: 5vw;
+      margin-right: 5vw;
+      p {
+        font-size: 15.0vw;
+      }
+
+      p:nth-child(2n + 1) {
+        font-size: 5.0vw;
+      }
+    }
+  }
+
+  .search-queries {
+    li {
+      p, p:first-child {
+        width: 50%;
+      }
+      p:nth-child(2) {
+        display: none;
+      }
+    }
+
+    li:hover {
+      p {
+        width: 50%;
+      }
+    }
+
+  }
+
+}
